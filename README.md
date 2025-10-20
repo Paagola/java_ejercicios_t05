@@ -1,18 +1,52 @@
-## Getting Started
+# TEMA 5
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## EJERCICIO 1
 
-## Folder Structure
+Muestra los números múltiplos de 5 de 0 a 100 utilizando un bucle `for`. Los números se pueden mostrar uno 
+debajo del otro, en una sola columna; o bien uno al lado del otro, en una misma fila.
 
-The workspace contains two folders by default, where:
+### `EJEMPLO`
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+> 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+<br>
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+<br>
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## EJERCICIO 2
+
+Muestra dos números múltiplos de 5 de 0 a 100 utilizando un bucle `while`.
+
+##  `EJEMPLO`
+
+> 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
+
+<br>
+
+---
+
+<br>
+
+## EJERCICIO 3
+
+Muestra los multiplos de 5 de 0 a 100 utilizando un bucle `do-while`.
+
+##  `EJEMPLO`
+
+> 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100
+
+<br>
+
+---
+
+<br>
+
+## EJERCICIO 4
+
+Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle for.
+
+##  `EJEMPLO`
+
+> 320 300 280 260 240 220 180 160
