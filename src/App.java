@@ -23,9 +23,9 @@ public class App {
                                 debajo del otro, en una sola columna; o bien uno al lado del otro, en una misma fila.
                                         """);
 
-                int numero_uno = 5;
+                int numero = 5;
                 for (int i = 0; i < 21; i += 1) {
-                    System.out.print(numero_uno * i + " ");
+                    System.out.print(numero * i + " ");
                 }
                 System.out.println();
                 break;
@@ -37,10 +37,10 @@ public class App {
                                 Muestra dos números múltiplos de 5 de 0 a 100 utilizando un bucle while.
                                 """);
 
-                int numero_dos = 5;
+                numero = 5;
                 int i = 0;
                 while (i < 21) {
-                    System.err.print(numero_dos * i + " ");
+                    System.out.print(numero * i + " ");
                     i += 1;
                 }
                 System.out.println();
@@ -54,14 +54,14 @@ public class App {
                                 Muestra los multiplos de 5 de 0 a 100 utilizando un bucle do-while.
                                 """);
 
-                int numero_tres = 5;
+                numero = 5;
                 i = 0;
 
                 do {
-                    System.out.print(numero_tres * i + " ");
+                    System.out.print(numero * i + " ");
                     i += 1;
                 } while (i < 21);
-                System.err.println();
+                System.out.println();
                 break;
             
             case 4: // EJERCICIO 4
@@ -71,16 +71,26 @@ public class App {
                         Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle for.
                                 """);
                 
-                int numero_cuatro;
-                for (numero_cuatro = 340; numero_cuatro >= 160; numero_cuatro -= 20);
-                    System.out.println(numero_cuatro + " ");
+                for (i = 340; i >= 160; i-= 20 ) {
+                    System.out.println(i + "");
+                    
+                }
 
+            case 5: //EJERCICIO 5
+            System.out.println(ut.GREEN_BOLD + "EJERCICIO 4" + ut.RESET);
+            System.out.println(
+                    """
+                        Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle while.
+                            """);
 
+                numero = 340;
+                
+                
                 break;
                             
 
             default:
-                System.err.println("El ejercicio que has seleccionado no existe.");
+                System.out.println("El ejercicio que has seleccionado no existe.");
         }
     }
 }
