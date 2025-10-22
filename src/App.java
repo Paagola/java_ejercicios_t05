@@ -43,7 +43,7 @@ public class App {
                 numero = 5;
                 int i = 0;
                 while (i < 21) {
-                    System.err.print(numero * i + " ");
+                    System.err.print(numero_dos * i + " ");
                     i += 1;
                 }
                 System.out.println();
@@ -63,33 +63,21 @@ public class App {
                     System.out.print(numero * i + " ");
                     i += 1;
                 } while (i < 21);
-                System.err.println();
+                System.out.println();
                 break;
 
             case 4: // EJERCICIO 4
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 4" + ut.RESET);
                 System.out.println(
                         """
-                                Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle for.
-                                        """);
+                        Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle for.
+                                """);
+                
+                int numero_cuatro;
+                for (numero_cuatro = 340; numero_cuatro >= 160; numero_cuatro -= 20);
+                    System.out.println(numero_cuatro + " ");
 
-                for (numero = 340; numero >= 160; numero -= 20)
-                    ;
-                System.out.println(numero + " ");
-                break;
 
-            case 5: // EJERCICIO 5
-                System.out.println(ut.GREEN_BOLD + "EJERCICIO 5" + ut.RESET);
-                System.out.println(
-                        """
-                                Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle while.
-                                    """);
-
-                numero = 340;
-                while (numero > 160) {
-                    numero -= 20;
-                    System.out.print(numero + " ");
-                }
                 break;
 
             case 6: // EJERCICIO 6
@@ -134,7 +122,7 @@ public class App {
             break;
 
             default:
-                System.err.println("El ejercicio que has seleccionado no existe.");
+                System.out.println("El ejercicio que has seleccionado no existe.");
         }
     }
 }
