@@ -4,7 +4,7 @@ public class App {
         System.out.println("""
                             ELIGE UN EJERCICIO
                 -----------------------------------------
-                EJERCICIO 1 -> 1   |
+                EJERCICIO 1 -> 1   | EJERCICIO 8 -> 8   |
                 EJERCICIO 2 -> 2   |
                 EJERCICIO 3 -> 3   |
                 EJERCICIO 4 -> 4   |
@@ -43,7 +43,7 @@ public class App {
                 numero = 5;
                 int i = 0;
                 while (i < 21) {
-                    System.err.print(numero_dos * i + " ");
+                    System.err.print(numero * i + " ");
                     i += 1;
                 }
                 System.out.println();
@@ -121,6 +121,36 @@ public class App {
                 }
             break;
 
+            case 8: // EJERCICIO 8
+             System.out.println(ut.GREEN_BOLD + "EJERCICIO 8" + ut.RESET);
+                System.out.println(
+                        """
+                        Muestra la tabla de multiplicar de un número introducido por teclado.
+                        """);
+             numero = Integer.parseInt(System.console().readLine("Introduzca un número y le mostraré su tabla de multiplicar -> "));
+             for (i = 0; i < 11; i++) {
+                System.err.printf("%d x %d = %d%n", numero, i, numero * i);
+             }
+             break;
+
+            case 9: // EJERCICIO 9
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 8" + ut.RESET);
+                System.out.println(
+                        """
+                        Realiza un programa que nos diga cuántos dígitos tiene un número introducido por teclado. Este ejercicio es equivalente a otro 
+                        realizado anteriormente, con la salvedad de que el anterior estaba limitado a números de 5 dígitos como máximo.
+                        En esta ocasión, hay que realizar el ejercicio utilizando bucles; de esta manera, la única limitación en el número de dígitos la establece el 
+                        tipo de dato que se utilice (`int` o `long`).
+                        """);
+
+            numero = Integer.parseInt(System.console().readLine("Introduce un número entero -> "));
+             if (numero > 1) {
+                while(true) {
+                // Encontrar una forma de ir contando numeros.
+             }
+             }
+             
+            
             default:
                 System.out.println("El ejercicio que has seleccionado no existe.");
         }
