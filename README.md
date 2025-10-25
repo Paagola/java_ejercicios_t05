@@ -265,3 +265,52 @@ En esta ocasión, hay que realizar el ejercicio utilizando bucles; de esta maner
 > Introduzca el número entero: 1234567890123456789
 >
 > 1234567890123456789 tiene 19 digito/s
+
+
+<br>
+
+---
+
+<br>
+
+## EJERCICIO 10
+
+Escribe un programa que clacule la media de un conjunto de números positvos introducido por teclado. A priori, el programa no sabe cuántos números e introducirán. El usuario indicarça que ha terminado de introducir los datos cuando meta un número negativo.
+
+###  `EJEMPLO 1`
+
+> Este programa clacula la media de los números positivos introducidos.
+>
+> Para parar, introduzca un número negativo.
+>
+> Vaya introduciendo números:
+>
+> 21
+>
+> 55
+>
+> 33
+> 
+> -1
+>
+> La media de los números positivos introducidos es 36.33333333336
+
+###  `EJEMPLO 2`
+
+> Este programa clacula la media de los números positivos introducidos.
+>
+> Para parar, introduzca un número negativo.
+>
+> Vaya introduciendo números:
+>
+> 7.5
+>
+> 32.89
+>
+> 123.01
+> 
+> 88
+>
+> -5
+>
+> La media de los números positivos introducidos es 36.33333333336
