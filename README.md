@@ -314,3 +314,49 @@ Escribe un programa que clacule la media de un conjunto de números positvos int
 > -5
 >
 > La media de los números positivos introducidos es 36.33333333336
+
+<br>
+
+---
+
+<br>
+
+## EJERCICIO 11
+
+Escribe un programa que meustre en tres columnas, el cuadro y el cubo de los 5 primero números enteros a partir de uno que se introduce por teclado.
+
+###  `EJEMPLO 1`
+
+> Introduzca un número: 10
+>
+>  n |   n2   |   n3    
+>
+> ----------------------
+>
+> 10 |  100   |  1000
+>
+> 11 |  121   |  1331
+>
+> 12 |  144   |  1728
+>
+> 13 |  169   |  2197
+>
+> 14 |  196   |  2744
+
+###  `EJEMPLO 2`
+
+> Introduzca un número: 10
+>
+>  n  |    n2    |     n3    
+>
+> --------------------------
+>
+> 222 |  49284   |  10941048
+>
+> 223 |  49729   |  11089567
+>
+> 224 |  50176   |  11239424
+>
+> 225 |  50625   |  11390625
+>
+> 226 |  51076   |  11543176

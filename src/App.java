@@ -1,16 +1,17 @@
+
 public class App {
     public static void main(String[] args) throws Exception {
 
         System.out.println("""
-                            ELIGE UN EJERCICIO
-                -----------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 8 -> 8   |
-                EJERCICIO 2 -> 2   | EJERCICIO 9 -> 9   |
-                EJERCICIO 3 -> 3   | EJERCICIO 10 -> 10 |
-                EJERCICIO 4 -> 4   |
-                EJERCICIO 5 -> 5   |
-                EJERCICIO 6 -> 6   |
-                EJERCICIO 7 -> 7   |
+                                        ELIGE UN EJERCICIO
+                ---------------------------------------------------------------------
+                EJERCICIO 1 -> 1   | EJERCICIO 8 -> 8   | EJERCICIO 15 -> 15 |
+                EJERCICIO 2 -> 2   | EJERCICIO 9 -> 9   | EJERCICIO 16 -> 16 |
+                EJERCICIO 3 -> 3   | EJERCICIO 10 -> 10 | EJERCICIO 17 -> 17 |
+                EJERCICIO 4 -> 4   | EJERCICIO 11 -> 11 |
+                EJERCICIO 5 -> 5   | EJERCICIO 12 -> 12 |
+                EJERCICIO 6 -> 6   | EJERCICIO 13 -> 13 |
+                EJERCICIO 7 -> 7   | EJERCICIO 14 -> 14 |
                 """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -185,8 +186,217 @@ public class App {
 
                 break;
 
+            case 11: // EJERCICIO 11
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 11" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que muestre en tres columnas, el cuadro y el cubo de los 5 primero números enteros
+                                a partir de uno que se introduce por teclado.
+                                """);
+
+                numero = Integer.parseInt(System.console().readLine("Introduce un número -> "));
+
+                // Número de digitos que hay en n
+                int numeron = numero + 4;
+                int digitosn = 0;
+                do {
+                    numeron /= 10;
+                    ++digitosn;
+                } while (numeron > 0);
+
+                // Número de digitos que hay en n^2
+                int digitosncuadrado = 0;
+                numeron = (int) Math.pow(numero + 4, 2);
+                do {
+                    numeron /= 10;
+                    digitosncuadrado++;
+                } while (numeron > 0);
+
+                // Número de digitos que hay en n^3
+                int digitosncubo = 0;
+                numeron = (int) Math.pow(numero + 4, 3);
+                do {
+                    numeron /= 10;
+                    digitosncubo++;
+                } while (numeron > 0);
+
+                int anchon = Math.max(digitosn, 1);
+                int anchoncuadrado = Math.max(digitosncuadrado, 2);
+                int anchoncubo = Math.max(digitosncubo, 2);
+
+                System.out.printf(
+                        "%" + anchon + "s" +
+                                "%s" +
+                                "%" + anchon + "s" +
+                                "|" +
+                                "%" + (int) Math.ceil(digitosncuadrado / 2) + "s" +
+                                "%s" +
+                                "%" + (int) Math.floor(digitosncuadrado / 2) + "s" +
+                                "|" +
+                                "%" + (int) Math.ceil(digitosncubo / 2) + "s" +
+                                "%s" +
+                                "%" + (int) Math.floor(digitosncubo / 2) + "s" +
+                                "|%n",
+                        "", "n", "", "", "n2", "", "", "n3", "");
+
+                String table = "%" + Math.ceil(digitosn / 2) + "s" +
+                        "%d" +
+                        "%" + Math.floor(digitosn / 2) + "s" +
+                        "|" +
+                        "%" + Math.ceil(digitosncuadrado / 2) + "s" +
+                        "%d" +
+                        "%" + Math.floor(digitosncuadrado / 2) + "s" +
+                        "|" +
+                        "%" + Math.ceil(digitosncubo / 2) + "s" +
+                        "%d" +
+                        "%" + Math.floor(digitosncubo / 2) + "s" +
+                        "|%n";
+                for (i = 0; i <= 4; i++)
+                    System.out.printf(table,
+                            "", numero + i, "",
+                            "", (int) Math.pow(numero + i, 2), "",
+                            "", (int) Math.pow(numero + i, 3), "");
+
+                break;
+
+            case 12: // EJERCICIO 12
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 12" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que muestre los n primero términos de la serie de Fibonacci.
+                                El primer término de la serie de Fibonacci es el 0, el segundo es el 1el resto se calcula sumando lso dos anteriores,
+                                por lo que tendríamos que los términos son 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...
+                                El número n se debe introducir por teclado.
+                                """);
+                numero = Integer.parseInt(System.console().readLine("Por favor introduzca el número n: "));
+                int a = 0;
+                int b = 1;
+                int c;
+                if (numero >= 1) {
+                    System.out.print(0 + " ");
+                }
+
+                for (i = 0; numero > i; i++) {
+                    System.out.print(b + " ");
+                    c = a + b;
+                    a = b;
+                    b = c;
+                }
+                break;
+
+            case 13: // EJERCICIO 13
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 13" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que lea una lista de 10 número y determine cuántos son positivos y cuántos negativos.
+                                """);
+                int positivos = 0;
+                int negativos = 0;
+
+                for (i = 1; i < 11; i++) {
+                    numero = Integer.parseInt(System.console().readLine("Introduce el " + i + "er numero: "));
+                    positivos += ((numero > 0) ? 1 : 0);
+                    negativos += ((numero < 0) ? 1 : 0);
+                }
+                System.out.printf("Has introducido %d negativos y %d positivos%n", negativos, positivos);
+                break;
+
+            case 14: // EJERCICIO 14
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 14" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pieda una base y un exponente y que calcule la potencia.
+                                No se deben utilizar funciones de exponienzación como Math.pow
+                                """);
+                System.out.println("Calculo de una potencia");
+                int base = Integer.parseInt(System.console().readLine("Introduzca la base: "));
+                int exponente = Integer.parseInt(System.console().readLine("Introduzca el exponente: "));
+                aux = base;
+                for (i = 1; exponente > i; i++) {
+                    aux = aux * base;
+                }
+                System.out.println(base + "^" + exponente + " = " + aux);
+
+                break;
+
+            case 15: // EJERCICIO 15
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 15" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que dado dos números, saque por pantalla todas las potencias con base del
+                                primer número y exponente entre uno y el segundo número introducido. Por ejemplo, si introducimos el 2 y el 5,
+                                se  deberán mostrar 2^1, 2^2, 2^3, 2^4 y 2^5. No se deben usar funciones de exponienzación como Math.pow()
+                                """);
+                base = Integer.parseInt(System.console().readLine("Introduzca la base: "));
+                exponente = Integer.parseInt(System.console().readLine("Introduzca el exponente: "));
+
+                aux = base;
+                for (i = 1; exponente >= i; i++) {
+                    System.out.println(base + "^" + i + " = " + aux);
+                    aux *= exponente;
+                }
+                break;
+
+            case 16: // EJERCICIO 16
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 16" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que diga si un número introducido por teclado es o no primo.
+                                Un número primo es aquel que solo es divisible entre él mismo y la unidad.
+                                """);
+
+                numero = Integer.parseInt(System.console().readLine("Introduce un número y le diré si es primo: "));
+                boolean esprimo = true;
+
+                double aux_double = Math.sqrt(numero);
+                i = 2;
+                if (numero < 50) {
+                    while (esprimo && (i < numero)) {
+                        esprimo = ((numero % i) == 0 ? false : true);
+                        i++;
+                    }
+                }
+
+                // Caso para cuando los número sean grandes.
+                else {
+                    do {
+                        esprimo = ((numero % i) == 0 ? false : true);
+                        i++;
+                    } while (esprimo && (i < aux_double));
+                }
+                System.out.println((esprimo == false) ? "El número no es primo" : "El número es primo");
+                break;
+
+            case 17: // EJERCICIO 17
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 17" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que sime los 100 primeros números siguientes a un número entero y positivo
+                                introducido por teclado. Se debe comprobar que el dato introducido es correcto (que és un número
+                                positivo.)
+                                """);
+                numero = 0;
+                do {
+                    try {
+                        numero = Integer.parseInt(System.console().readLine("Introduce un número entero positivo: "));
+                        System.out.println((numero >= 0) ? "" : "El número que ha introducido no es correcto!!!");
+                    } catch (NumberFormatException e) {
+                        System.out.println("Introduce un número!!!");
+                        numero = -1;
+                    }
+
+                } while (numero < 0);
+
+                suma_num = 0;
+                for (i = 0; i < 100; i++) {
+                    suma_num += (numero + i);
+                }
+                System.out.printf("La suma de todos los 100 número siguientes de %d es %.0f", numero, suma_num);
+                break;
+
             default:
                 System.out.println("El ejercicio que has seleccionado no existe.");
+
         }
     }
 }
