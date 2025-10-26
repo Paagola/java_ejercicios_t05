@@ -144,13 +144,13 @@ public class App {
                                 """);
 
                 long numero_long = Integer.parseInt(System.console().readLine("Introduce un número entero -> "));
-                long aux = numero_long;
+                long aux_long = numero_long;
                 i = 1;
                 boolean verdadero = true;
                 if (numero_long > 1)
                     while (verdadero) {
-                        aux /= 10;
-                        if (aux > 0)
+                        aux_long /= 10;
+                        if (aux_long > 0)
                             i++;
                         else
                             verdadero = false;
@@ -311,11 +311,11 @@ public class App {
                 System.out.println("Calculo de una potencia");
                 int base = Integer.parseInt(System.console().readLine("Introduzca la base: "));
                 int exponente = Integer.parseInt(System.console().readLine("Introduzca el exponente: "));
-                aux = base;
+                aux_long = base;
                 for (i = 1; exponente > i; i++) {
-                    aux = aux * base;
+                    aux_long = aux_long * base;
                 }
-                System.out.println(base + "^" + exponente + " = " + aux);
+                System.out.println(base + "^" + exponente + " = " + aux_long);
 
                 break;
 
@@ -330,10 +330,10 @@ public class App {
                 base = Integer.parseInt(System.console().readLine("Introduzca la base: "));
                 exponente = Integer.parseInt(System.console().readLine("Introduzca el exponente: "));
 
-                aux = base;
+                aux_long = base;
                 for (i = 1; exponente >= i; i++) {
-                    System.out.println(base + "^" + i + " = " + aux);
-                    aux *= exponente;
+                    System.out.println(base + "^" + i + " = " + aux_long);
+                    aux_long *= exponente;
                 }
                 break;
 
@@ -348,7 +348,7 @@ public class App {
                 numero = Integer.parseInt(System.console().readLine("Introduce un número y le diré si es primo: "));
                 boolean esprimo = true;
 
-                double aux_double = Math.sqrt(numero);
+                double aux_long_double = Math.sqrt(numero);
                 i = 2;
                 if (numero < 50) {
                     while (esprimo && (i < numero)) {
@@ -362,7 +362,7 @@ public class App {
                     do {
                         esprimo = ((numero % i) == 0 ? false : true);
                         i++;
-                    } while (esprimo && (i < aux_double));
+                    } while (esprimo && (i < aux_long_double));
                 }
                 System.out.println((esprimo == false) ? "El número no es primo" : "El número es primo");
                 break;
@@ -394,6 +394,42 @@ public class App {
                 System.out.printf("La suma de todos los 100 número siguientes de %d es %.0f", numero, suma_num);
                 break;
 
+            case 18: // EJERCICIO 18
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 18" + ut.RESET);
+                System.out.println(
+                        """
+                                 Escribe un programa que obtenga los números enteros comprendidos entre dos números introducidos por teclado y 
+                                 validados como distintos, el programa debe empezar por el menos de los enteros introducidos e ir incrementando de 7
+                                 en 7 
+                                """);
+                int aux = 0;
+                do{
+                    try {
+                        numero = Integer.parseInt(System.console().readLine("Introduce un número entero: "));
+                        numeron = Integer.parseInt(System.console().readLine("Introduce otro número distinto al anterior: "));
+                    } catch (NumberFormatException e) {
+                        System.out.println("ERROR: TIENES QUE INTRODUCIR UN NÚMERO!!!");
+                        numero = 0; numeron = 0;
+                    } catch (Exception e) {
+                        System.out.println("ERROR INESPERADO!!!");
+                        numero = 0; numeron = 0;
+                    }    
+                } while (numero == numeron);
+                if (numero > numeron) {
+                    aux = numero;
+                    numero = numeron;
+                    numeron = aux;
+                }
+
+                System.out.print(numero + " ");
+                while ((numero + 7) <= numeron) {
+                    numero += 7;
+                    System.out.print(numero + " ");
+                }
+                    
+                
+
+                break;
             default:
                 System.out.println("El ejercicio que has seleccionado no existe.");
 
