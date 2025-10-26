@@ -3,15 +3,15 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         System.out.println("""
-                                        ELIGE UN EJERCICIO
+                                                ELIGE UN EJERCICIO
                 ---------------------------------------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 8 -> 8   | EJERCICIO 15 -> 15 |
-                EJERCICIO 2 -> 2   | EJERCICIO 9 -> 9   | EJERCICIO 16 -> 16 |
-                EJERCICIO 3 -> 3   | EJERCICIO 10 -> 10 | EJERCICIO 17 -> 17 |
-                EJERCICIO 4 -> 4   | EJERCICIO 11 -> 11 |
-                EJERCICIO 5 -> 5   | EJERCICIO 12 -> 12 |
-                EJERCICIO 6 -> 6   | EJERCICIO 13 -> 13 |
-                EJERCICIO 7 -> 7   | EJERCICIO 14 -> 14 |
+                EJERCICIO 1 -> 1   | EJERCICIO 8 -> 8   | EJERCICIO 15 -> 15 | EJERCICIO 22 -> 22 |
+                EJERCICIO 2 -> 2   | EJERCICIO 9 -> 9   | EJERCICIO 16 -> 16 | EJERCICIO 23 -> 23 |
+                EJERCICIO 3 -> 3   | EJERCICIO 10 -> 10 | EJERCICIO 17 -> 17 | EJERCICIO 24 ->    |
+                EJERCICIO 4 -> 4   | EJERCICIO 11 -> 11 | EJERCICIO 18 -> 18 | EJERCICIO 25 ->    |
+                EJERCICIO 5 -> 5   | EJERCICIO 12 -> 12 | EJERCICIO 19 -> 19 | EJERCICIO 26 -> 26 |
+                EJERCICIO 6 -> 6   | EJERCICIO 13 -> 13 | EJERCICIO 20 -> 20 |
+                EJERCICIO 7 -> 7   | EJERCICIO 14 -> 14 | EJERCICIO 21 -> 21 |
                 """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -398,22 +398,26 @@ public class App {
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 18" + ut.RESET);
                 System.out.println(
                         """
-                                 Escribe un programa que obtenga los números enteros comprendidos entre dos números introducidos por teclado y 
+                                 Escribe un programa que obtenga los números enteros comprendidos entre dos números introducidos por teclado y
                                  validados como distintos, el programa debe empezar por el menos de los enteros introducidos e ir incrementando de 7
-                                 en 7 
+                                 en 7
                                 """);
                 int aux = 0;
-                do{
+                do {
                     try {
                         numero = Integer.parseInt(System.console().readLine("Introduce un número entero: "));
-                        numeron = Integer.parseInt(System.console().readLine("Introduce otro número distinto al anterior: "));
+                        numeron = Integer
+                                .parseInt(System.console().readLine("Introduce otro número distinto al anterior: "));
+                        System.out.println((numero == numeron) ? "Los números introducidos deben ser distintos" : "");
                     } catch (NumberFormatException e) {
                         System.out.println("ERROR: TIENES QUE INTRODUCIR UN NÚMERO!!!");
-                        numero = 0; numeron = 0;
+                        numero = 0;
+                        numeron = 0;
                     } catch (Exception e) {
                         System.out.println("ERROR INESPERADO!!!");
-                        numero = 0; numeron = 0;
-                    }    
+                        numero = 0;
+                        numeron = 0;
+                    }
                 } while (numero == numeron);
                 if (numero > numeron) {
                     aux = numero;
@@ -426,13 +430,192 @@ public class App {
                     numero += 7;
                     System.out.print(numero + " ");
                 }
-                    
-                
+
+            case 19: // EJERCICIO 19
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 19" + ut.RESET);
+                System.out.println(
+                        """
+                                 Realiza un programa que pinte una pirámide por pantalla. La altura se debe pedir por teclado.
+                                 El carácter con el que se pinta también se debe pedir por teclado
+                                """);
+
+                int altura = Integer.parseInt(System.console().readLine("Introduce la altura de la pirámide: "));
+                String relleno = System.console().readLine("Introduce el carácter de relleno: ");
+
+                int y = 1;
+                aux = altura;
+                for (i = 1; i <= altura; i++) {
+                    aux -= 1;
+                    for (int j = 1; j <= aux; j++) {
+                        System.out.print(" ");
+                    }
+                    for (int j = 1; j <= y; j++) {
+                        System.out.print(relleno);
+                    }
+                    for (int j = 1; j <= aux; j++) {
+                        System.out.print(" ");
+                    }
+                    System.out.println("");
+                    y += 2;
+                }
 
                 break;
+
+            case 20: // EJERCICIO 20
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 20" + ut.RESET);
+                System.out.println(
+                        """
+                                Igual que el otro ejercicio anterior pero esta vez se debe pintar una pirámide hueca
+                                """);
+                altura = Integer.parseInt(System.console().readLine("Introduce la altura de la pirámide: "));
+                relleno = System.console().readLine("Introduce el carácter de relleno: ");
+
+                y = 1;
+                aux = altura;
+                for (i = 1; i <= altura; i++) {
+                    aux -= 1;
+                    for (int j = 1; j <= aux; j++) {
+                        System.out.print(" ");
+                    }
+                    for (int j = 1; j <= y; j++) {
+
+                        if (j == y || j == 1 || i == altura) {
+                            System.err.print(relleno);
+                        } else {
+                            System.out.print(" ");
+                        }
+
+                    }
+
+                    for (int j = 1; j <= aux; j++) {
+                        System.out.print(" ");
+                    }
+                    System.out.println("");
+                    y += 2;
+                }
+                break;
+
+            case 21: // EJERCICIO 21
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 21" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que que vaya pidiendo números hasta que se introduzca un numero negativo y nos diga cuantos números
+                                se han introducido, la media de los impares y el mayor de los pares.
+                                El número negativo sólo se utiliza para indicar el final de la introducción de datos pero no se incluye en el cómputo.
+                                    """);
+                int num_mayor = 0;
+                int media_imp = 0;
+                i = 0;
+                int contador_impar = 0;
+                System.out.println("Para terminar introduce un número negativo.");
+                do {
+                    numero = Integer.parseInt(System.console().readLine("-> "));
+                    if (numero >= 0) {
+                        i++;
+                        if (numero % 2 == 0) {
+                            num_mayor = (num_mayor > numero ? num_mayor : numero);
+                        }
+                        ;
+                        contador_impar = ((numero % 2) != 0 ? 1 : 0);
+                        media_imp += ((numero % 2) != 0 ? numero : 0);
+                    }
+                } while (numero >= 0);
+                System.out.println("Has introducido " + i + " números positivos");
+                System.out.println("La media de los impares es " + media_imp / contador_impar);
+                System.out.println("El máximo de los pares es " + num_mayor);
+
             default:
                 System.out.println("El ejercicio que has seleccionado no existe.");
 
+            case 22: // EJERCICIO 22
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 22" + ut.RESET);
+                System.out.println(
+                        """
+                                Muestra por pantalla todos los números primos entre 2 y 100, ambos incluidos.
+                                    """);
+
+                esprimo = false;
+                for (i = 2; i <= 100; i++) {
+                    esprimo = true;
+
+                    for (int j = 2; j < i; j++) {
+                        if (i % j == 0) {
+                            esprimo = false;
+                            break;
+                        }
+                    }
+
+                    if (esprimo) {
+                        System.out.print(i + " ");
+                    }
+                }
+                break;
+
+            case 23: // EJERCICIO 23
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 23" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que permita ir introduciendo una seria indetermindad de números hasta que su suma supere el valor 1000.
+                                Cuando esto último ocurra se debe mostrar el total acumulado, el contador de los números introducidos y
+                                la media.
+                                    """);
+                i = 0;
+                suma_num = 0;
+                    do {
+                    numero = Integer.parseInt(System.console().readLine("-> "));
+                    suma_num += numero; 
+                    i++;
+                } while (suma_num < 10000);
+                System.out.println("Ha introducido un total de " + i + " números.");
+                System.out.println("La suma total es " + suma_num);
+                System.out.println("La media es " + suma_num / i);
+                break;
+
+            case 24: // EJERCICIO 24
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 24" + ut.RESET);
+                System.out.println(
+                        """
+                                PENDIENDE !!!
+                                    """);
+            
+            break;
+
+            case 25: // EJERCICIO 25
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 25" + ut.RESET);
+                System.out.println(
+                        """
+                                PENDIENTE !!!
+                                    """);
+
+            break;
+
+
+             case 26: // EJERCICIO 26
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 26" + ut.RESET);
+                System.out.println(
+                        """
+                            Realiza un programa que pida primero un número y a continuación un dígito. El programa nos debe dat la posición (o posiciones), 
+                            contanto de izquierda a derecha en el número introducido
+                                    """);
+                String numeroString = System.console().readLine("Introduce un número: ");
+                char numerocaracter = System.console().readLine("Introduce un número: ").charAt(0);
+
+                for (i = 0; i < numeroString.length(); i++) {
+                    if (numeroString.charAt(i) == numerocaracter) {
+                        System.err.print((i + 1) + " ");
+                    }
+                }
+
+                 case 27: // EJERCICIO 27
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 27" + ut.RESET);
+                System.out.println(
+                        """
+                            
+                                    """);
+                }
+                
+
         }
+
     }
-}
+
