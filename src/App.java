@@ -5,7 +5,7 @@ public class App {
         System.out.println("""
                                                  ELIGE UN EJERCICIO
                 -----------------------------------------------------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 11 -> 11 | EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 |
+                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 |
                 EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 |
                 EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 |
                 EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 |
@@ -46,7 +46,7 @@ public class App {
                 numero = 5;
                 int i = 0;
                 while (i < 21) {
-                    System.err.print(numero * i + " ");
+                    System.out.print(numero * i + " ");
                     i += 1;
                 }
                 System.out.println();
@@ -132,7 +132,7 @@ public class App {
                 numero = Integer.parseInt(
                         System.console().readLine("Introduzca un número y le mostraré su tabla de multiplicar -> "));
                 for (i = 0; i < 11; i++) {
-                    System.err.printf("%d x %d = %d%n", numero, i, numero * i);
+                    System.out.printf("%d x %d = %d%n", numero, i, numero * i);
                 }
                 break;
 
@@ -161,7 +161,7 @@ public class App {
                 else
                     System.out.println("El número tiene 2 dígitos.");
 
-                System.err.printf("El número %d tiene %d dígitos", numero_long, i);
+                System.out.printf("El número %d tiene %d dígitos", numero_long, i);
 
                 break;
 
@@ -483,7 +483,7 @@ public class App {
                     for (int j = 1; j <= y; j++) {
 
                         if (j == y || j == 1 || i == altura) {
-                            System.err.print(relleno);
+                            System.out.print(relleno);
                         } else {
                             System.out.print(" ");
                         }
@@ -635,7 +635,7 @@ public class App {
 
                 for (i = 0; i < numeroString.length(); i++) {
                     if (numeroString.charAt(i) == numerocaracter) {
-                        System.err.print((i + 1) + " ");
+                        System.out.print((i + 1) + " ");
                     }
                 }
                 break;
