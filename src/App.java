@@ -542,10 +542,9 @@ public class App {
                 for (i = 2; i <= 100; i++) {
                     esprimo = true;
 
-                    for (int j = 2; j < i; j++) {
+                    for (int j = 2; esprimo && j < i / 2; j++) {
                         if (i % j == 0) {
                             esprimo = false;
-                            break;
                         }
                     }
 
@@ -569,19 +568,19 @@ public class App {
                     numero = Integer.parseInt(System.console().readLine("-> "));
                     suma_num += numero;
                     i++;
-                } while (suma_num < 10000);
+                } while (suma_num <= 10000);
                 System.out.println("Ha introducido un total de " + i + " números.");
-                System.out.println("La suma total es " + suma_num);
-                System.out.println("La media es " + suma_num / i);
+                System.out.println("La suma total es " + (int) suma_num);
+                System.out.printf("La media es %.2f%n", (double) suma_num / i);
                 break;
 
             case 24: // EJERCICIO 24
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 24" + ut.RESET);
                 System.out.println(
                         """
-                            Escribe un programa que lea un número n e imprima una pirámide de números con n filas
-                            como se muestra en los siguientes ejemplos:
-                                    """);
+                                Escribe un programa que lea un número n e imprima una pirámide de números con n filas
+                                como se muestra en los siguientes ejemplos:
+                                        """);
                 altura = Integer.parseInt(System.console().readLine("Introduce la altura de la pirámide"));
 
                 y = 1;
@@ -595,17 +594,17 @@ public class App {
                     }
 
                     for (int j = 0; j < y; j++) {
-                        if (numero > (int)Math.ceil(y / 2)) {
+                        if (numero > (int) Math.ceil(y / 2)) {
                             numeron -= 1;
                             System.out.print(numeron);
                         } else {
                             numero += 1;
                             System.out.print(numero);
                             numeron = numero;
-                        } 
-                    } 
+                        }
+                    }
 
-                    for (int j = 0; j < aux-1; j++) {
+                    for (int j = 0; j < aux - 1; j++) {
                         System.out.print(" ");
                     }
                     System.out.println(" ");
@@ -620,6 +619,7 @@ public class App {
                         """
                                 PENDIENTE !!!
                                     """);
+                numero = Integer.parseInt(System.console().readLine("Introduce un número: "));
 
                 break;
 
@@ -708,7 +708,7 @@ public class App {
 
                                 PENDIENTE!!!
                                     """);
-                break;  
+                break;
 
             case 31: // EJERCICIO 31
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 31" + ut.RESET);
@@ -743,9 +743,9 @@ public class App {
                 String sumapar = "";
                 numeroString = numero + "";
                 int suma_num_int = 0;
-                
-                for (i=0; i < numeroString.length(); i++) {
-                    
+
+                for (i = 0; i < numeroString.length(); i++) {
+
                     digitosn = Character.getNumericValue(numeroString.charAt(i));
                     if (digitosn % 2 == 0) {
                         sumapar = sumapar + (digitosn + " ");
@@ -754,7 +754,7 @@ public class App {
                 }
                 System.out.println("numeros pares: " + sumapar);
                 System.out.println("suma numeros pares: " + suma_num_int);
-            break;
+                break;
 
             case 33: // EJERCICIO 33
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 33" + ut.RESET);
@@ -782,9 +782,10 @@ public class App {
                                                                             // porque
                     }
                 }
+                break;
 
             case 34: // EJERCICIO 34
-                System.out.println(ut.GREEN_BOLD + "EJERCICIO 33" + ut.RESET);
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 34" + ut.RESET);
                 System.out.println(
                         """
                                 Escribe un programa que pida dos números por teclado y que luego mezcle en dos números
@@ -829,12 +830,68 @@ public class App {
                         }
 
                     }
-
                 }
                 System.out.println(sumapar);
                 System.out.println(sumaimp);
 
-        }
+            case 35: // EJERCICIO 35
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 35" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiz un programa que pinte una X hecha de asteriscos. El programa debe pedir la altura. Se debe
+                                comprobar que la altura sea un número impar mayor o igual a 3, en caso contrario se debe mostrar un mensaje
+                                de error.
+                                    """);
+                boolean correcto = true;
 
+                do {
+                    altura = Integer.parseInt(System.console().readLine("Por favor, introduce la altura de la X: "));
+                    if (altura % 2 == 0 || altura < 3) {
+                        System.out.println("\nIntroduce números impares o un número mayor o igual a 3!!!\n");
+                    } else {
+                        correcto = false;
+                    }
+                } while (correcto);
+
+                int fila = altura - 1;
+
+                for (i = 0; i < altura; i++) {
+                    for (int j = 0; j < altura; j++) {
+                        if (i == j || j == fila) {
+                            System.out.print("*");
+                        } else {
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.println(" ");
+                    fila--;
+
+                }
+                break;
+
+                case 36: // EJERCICIO 35
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 36" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que diga si un número introducido por teclado es o no capicúa. Los números capicúa se leen igual 
+                                hacia delante y hacia atraás. El programa debe aceptar número de cualquier longitud siempre que lo permita el tipo, en caso contrario
+                                el ejercicio no se dará por bueno. Se recomienda usar long en lugar de int ya que el primero admite números más largos.
+                                    """);
+                        numero_long = Long.parseLong(System.console().readLine("Por favor introduzca un número entero positivo: "));
+
+                        aux_long = numero_long;
+                        long aux_longReverse = 0;
+                        
+                        while (aux_long > 0){
+                            aux_longReverse = aux_longReverse * 10 + (aux_long % 10);
+                            aux_long /= 10;
+                        }
+
+                        if (numero_long == aux_longReverse) {
+                            System.out.printf("El %d es capicúa", numero_long);
+                        } else System.out.printf("El %d no es capicúa", numero_long);
+
+                        break;
+        }
     }
 }
