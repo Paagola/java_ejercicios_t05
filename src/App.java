@@ -9,9 +9,9 @@ public class App {
                 EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 |
                 EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 |
                 EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 |
-                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    |
-                EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 |
-                EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 |
+                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 |
+                EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 |
+                EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |
                 EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 |
                 EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 |
                 EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 ->    |
@@ -869,7 +869,7 @@ public class App {
                 }
                 break;
 
-                case 36: // EJERCICIO 35
+                case 36: // EJERCICIO 36
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 36" + ut.RESET);
                 System.out.println(
                         """
@@ -892,6 +892,43 @@ public class App {
                         } else System.out.printf("El %d no es capicúa", numero_long);
 
                         break;
-        }
+
+                        case 37: // EJERCICIO 37
+                        System.out.println(ut.GREEN_BOLD + "EJERCICIO 37" + ut.RESET);
+                        System.out.println(
+                                """
+                                    Realiza un conversor del sistema decimal al sistema de "palotes". En este sistema cada dígito se representa por 
+                                    su correspondiente números de palotes. Por ejemplo ek 1 se representa con un palote (|), el 2 con dos palotes (||) y 
+                                    así sucesivamente. El cero es la ausencia de palotes. Cada dígito se separa del siguiente con n guión (-).
+                                            """);
+
+                        numero =  Integer.parseInt(System.console().readLine("Por favor introduzca un número entero positivo: "));
+
+                        System.out.printf("El %d en decimal es el ", numero);
+                        correcto = false;
+                        aux = numero;
+                        digitosn = 0 ;
+
+                        while (aux > 0) {
+                            aux /= 10;
+                            digitosn++;
+                        }
+                        aux = numero;
+
+                        for (i = 1; i <= digitosn; i++) {
+                            aux = numero / (int)(Math.pow(10, digitosn - i));
+                            for (int j = 0; j < aux; j++ ) {
+                                System.out.print("| ");
+                            }
+                            numero = numero % (int)(Math.pow(10, digitosn - i));
+                            if (i !=  digitosn) {
+                                System.out.print("- ");
+                            }
+                        }
+
+
+
+
+        }   
     }
 }
