@@ -954,6 +954,7 @@ public class App {
                     for (int j = 0; j < asteriscos; j++) {
                         System.out.print("*");
                     }
+
                     if (i >= mitad){
                         espacios--;
                         asteriscos+=2;
@@ -961,8 +962,26 @@ public class App {
                         espacios++;
                         asteriscos -= 2;
                     }
-                    
                     System.out.println("");
+                }
+                break;
+
+                case 39: // EJERCICIO 39
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 39" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación 
+                                los números desde el 1 al número introducido junto con su factorial. 
+                                        """);
+
+                numero = Integer.parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+                
+                for (i = 1; i <= numero; i++) {
+                    int factorial = 1;
+                    for (int j = 1; j <= i; j++) {
+                        factorial *= j;
+                    }
+                    System.out.printf("%d! = %d%n", i, factorial);
                 }
         }
     }
