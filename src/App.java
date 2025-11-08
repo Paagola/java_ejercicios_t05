@@ -869,66 +869,101 @@ public class App {
                 }
                 break;
 
-                case 36: // EJERCICIO 36
+            case 36: // EJERCICIO 36
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 36" + ut.RESET);
                 System.out.println(
                         """
-                                Escribe un programa que diga si un número introducido por teclado es o no capicúa. Los números capicúa se leen igual 
+                                Escribe un programa que diga si un número introducido por teclado es o no capicúa. Los números capicúa se leen igual
                                 hacia delante y hacia atraás. El programa debe aceptar número de cualquier longitud siempre que lo permita el tipo, en caso contrario
                                 el ejercicio no se dará por bueno. Se recomienda usar long en lugar de int ya que el primero admite números más largos.
                                     """);
-                        numero_long = Long.parseLong(System.console().readLine("Por favor introduzca un número entero positivo: "));
+                numero_long = Long
+                        .parseLong(System.console().readLine("Por favor introduzca un número entero positivo: "));
 
-                        aux_long = numero_long;
-                        long aux_longReverse = 0;
-                        
-                        while (aux_long > 0){
-                            aux_longReverse = aux_longReverse * 10 + (aux_long % 10);
-                            aux_long /= 10;
-                        }
+                aux_long = numero_long;
+                long aux_longReverse = 0;
 
-                        if (numero_long == aux_longReverse) {
-                            System.out.printf("El %d es capicúa", numero_long);
-                        } else System.out.printf("El %d no es capicúa", numero_long);
+                while (aux_long > 0) {
+                    aux_longReverse = aux_longReverse * 10 + (aux_long % 10);
+                    aux_long /= 10;
+                }
 
-                        break;
+                if (numero_long == aux_longReverse) {
+                    System.out.printf("El %d es capicúa", numero_long);
+                } else
+                    System.out.printf("El %d no es capicúa", numero_long);
 
-                        case 37: // EJERCICIO 37
-                        System.out.println(ut.GREEN_BOLD + "EJERCICIO 37" + ut.RESET);
-                        System.out.println(
-                                """
-                                    Realiza un conversor del sistema decimal al sistema de "palotes". En este sistema cada dígito se representa por 
-                                    su correspondiente números de palotes. Por ejemplo ek 1 se representa con un palote (|), el 2 con dos palotes (||) y 
-                                    así sucesivamente. El cero es la ausencia de palotes. Cada dígito se separa del siguiente con n guión (-).
-                                            """);
+                break;
 
-                        numero =  Integer.parseInt(System.console().readLine("Por favor introduzca un número entero positivo: "));
+            case 37: // EJERCICIO 37
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 37" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un conversor del sistema decimal al sistema de "palotes". En este sistema cada dígito se representa por
+                                su correspondiente números de palotes. Por ejemplo ek 1 se representa con un palote (|), el 2 con dos palotes (||) y
+                                así sucesivamente. El cero es la ausencia de palotes. Cada dígito se separa del siguiente con n guión (-).
+                                        """);
 
-                        System.out.printf("El %d en decimal es el ", numero);
-                        correcto = false;
-                        aux = numero;
-                        digitosn = 0 ;
+                numero = Integer
+                        .parseInt(System.console().readLine("Por favor introduzca un número entero positivo: "));
 
-                        while (aux > 0) {
-                            aux /= 10;
-                            digitosn++;
-                        }
-                        aux = numero;
+                
+                correcto = false;
+                aux = numero;
+                digitosn = 0;
 
-                        for (i = 1; i <= digitosn; i++) {
-                            aux = numero / (int)(Math.pow(10, digitosn - i));
-                            for (int j = 0; j < aux; j++ ) {
-                                System.out.print("| ");
-                            }
-                            numero = numero % (int)(Math.pow(10, digitosn - i));
-                            if (i !=  digitosn) {
-                                System.out.print("- ");
-                            }
-                        }
+                while (aux > 0) {
+                    aux /= 10;
+                    digitosn++;
+                }
 
+                aux = numero;
+                System.out.printf("El %d en decimal es el ", numero);
+                for (i = 1; i <= digitosn; i++) {
+                    aux = numero / (int) (Math.pow(10, digitosn - i));
+                    for (int j = 0; j < aux; j++) {
+                        System.out.print("| ");
+                    }
+                    numero = numero % (int) (Math.pow(10, digitosn - i));
+                    if (i != digitosn) {
+                        System.out.print("- ");
+                    }
+                }
+                System.out.print("en el sistema de palotes.");
+                break;
 
-
-
-        }   
+                case 38: // EJERCICIO 38
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 38" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte un reloj de arena relleno hecho de asteriscos. El programa
+                                debe pedir la altura. Se debe comprobar que la altura se un número impar mayor o igual a 3, en caso
+                                contrariose debe mostrar un mensaje de error.
+                                        """);
+                altura = Integer.parseInt(System.console().readLine("Introduce la altura mayor a 2: "));
+                
+                int asteriscos = altura;
+                int espacios = 0;
+                aux = altura;
+                int mitad = (int)Math.ceil(altura/2);
+                
+                for (i = 0; i < altura; i++ ) {
+                    for (int j = 0; j < espacios; j++) {
+                        System.out.print(" ");
+                    }
+                    for (int j = 0; j < asteriscos; j++) {
+                        System.out.print("*");
+                    }
+                    if (i >= mitad){
+                        espacios--;
+                        asteriscos+=2;
+                    } else {
+                        espacios++;
+                        asteriscos -= 2;
+                    }
+                    
+                    System.out.println("");
+                }
+        }
     }
 }
