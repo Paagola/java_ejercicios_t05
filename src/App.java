@@ -983,6 +983,43 @@ public class App {
                     }
                     System.out.printf("%d! = %d%n", i, factorial);
                 }
+                break;
+
+             case 40: // EJERCICIO 40
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 40" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte por pantalla un rombo hueco hecho con asteriscos.
+                                El programa debe pedir la altura. Se debe comprobar que la altura sea un número
+                                impar mayor o igual a 3, en case contrario se debe mostrar un mensaje de error.
+                                        """);
+                
+                altura = Integer.parseInt(System.console().readLine("Por favor introduzca la altura del rombo: "));
+
+                mitad = (int)Math.ceil(altura/2);
+                espacios = altura - mitad;
+                asteriscos = 1;
+
+                for (i = 0; i < altura; i++) {
+                    for (int j = 0; j < espacios; j++) {
+                        System.out.print(" ");
+                    }
+                    for (int j = 1; j <= asteriscos; j++){
+                        if (asteriscos == j || j == 1) {
+                            System.out.print("*");
+                        } else System.out.print(" ");
+                    }
+                    if (i < mitad) {
+                        espacios--;
+                        asteriscos+=2;
+                    } else {
+                        espacios++;
+                        asteriscos-=2;
+                    }
+
+                    System.out.println(" ");
+                }
+                
         }
     }
 }
