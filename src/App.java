@@ -9,7 +9,7 @@ public class App {
                 EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |
                 EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |
                 EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |
-                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 |
+                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |
                 EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 |
                 EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |
                 EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 |
@@ -1284,7 +1284,34 @@ public class App {
                     aux_longReverse /= 10;
                 }
                 System.out.println("El número resultante es " + aux_long);
+                break;
 
+                case 46: // EJERCICIO 46
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 45" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte por pantalla un rectángulo hueco hecho con asteriscos. 
+                                Se debe pedir al usuario la anchura y la altura. Hay que comprobar que tanto la anchura
+                                como la altura sean mayores o iguales que 2, en caso contrario se debe mostrar
+                                un mensaje de error.
+                                        """);
+
+                anchon = Integer
+                        .parseInt(System.console().readLine("Anchura rectángulo: "));
+
+                altura = Integer
+                        .parseInt(System.console().readLine("Altura rectángulo: "));
+
+                for (i = 1; i <= altura; i++){
+                    for (int j = 1; j <= anchon; j++) {
+                        if (i == 1 || i == altura || j == 1 || j == anchon) {
+                            System.out.print("* ");
+                        } else {
+                            System.out.print("  ");
+                        }
+                    }
+                    System.out.println(" ");
+                }
         }
     }
 }
