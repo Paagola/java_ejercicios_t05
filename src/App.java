@@ -4,17 +4,17 @@ public class App {
 
         System.out.println("""
                                                  ELIGE UN EJERCICIO
-                -----------------------------------------------------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 |
+                --------------------------------------------------------------------------------------------------------
+                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |
                 EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 |
                 EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 |
                 EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 |
                 EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 |
                 EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 |
                 EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |
-                EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 |
-                EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 |
-                EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 ->    |
+                EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 |
+                EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |
+                EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |
                 """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -708,6 +708,100 @@ public class App {
 
                                 PENDIENTE!!!
                                     """);
+
+                boolean correcto = true;
+                String dia1 = "";
+                String dia2 = "";
+                int horaDia1 = 0;
+                int horaDia2 = 0;
+                int dia1Int = 0;
+                int dia2Int = 0;
+
+                do {
+                    dia1 = System.console().readLine("Introduce dia 1: ");
+                    dia1Int = switch (dia1.toLowerCase()) {
+                        case "1", "lunes" -> 1;
+                        case "2", "martes" -> 2;
+                        case "3", "miercoles", "miércoles" -> 3;
+                        case "4", "jueves" -> 4;
+                        case "5", "viernes" -> 5;
+                        case "6", "sabado" -> 6;
+                        case "7", "domingo" -> 7;
+                        default -> 8;
+                    };
+                    if (dia1Int < 1 || dia1Int > 7) {
+                        System.out.println("Introduce un día del 1-7 o de Lunes-Domingo");
+                    } else
+                        correcto = false;
+                } while (correcto);
+
+                do {
+                    try {
+                        correcto = true;
+                        horaDia1 = Integer.parseInt(System.console().readLine("Introduce la hora del día 1 -> "));
+                        if (horaDia1 < 0 || horaDia1 > 23) {
+                            System.out.println("Introduce de 0-23 horas");
+                        } else {
+                            correcto = false;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("\nERROR: INTRODUCE UN NÚMERO!!!\n");
+                    } catch (Exception e) {
+                        System.out.println("\nERROR INESPERADO!!!\n");
+                    }
+
+                } while (correcto);
+
+                do {
+                    correcto = true;
+                    dia2 = System.console().readLine("Introduce dia 2: ");
+                    dia2Int = switch (dia2.toLowerCase()) {
+                        case "1", "lunes" -> 1;
+                        case "2", "martes" -> 2;
+                        case "3", "miercoles", "miércoles" -> 3;
+                        case "4", "jueves" -> 4;
+                        case "5", "viernes" -> 5;
+                        case "6", "sabado" -> 6;
+                        case "7", "domingo" -> 7;
+                        default -> 8;
+                    };
+
+                    if (dia2Int < 1 || dia2Int > 7) {
+                        System.out.println("Introduce un día del 1-7 o de Lunes-Domingo");
+                    } else if (dia1Int > dia2Int) {
+                        System.out.println("El segundo día tiene que ser mayor que el primero.");
+                    } else {
+                        correcto = false;
+                    }
+
+                } while (correcto);
+
+                do {
+                    try {
+                        correcto = true;
+                        horaDia2 = Integer.parseInt(System.console().readLine("Introduce la hora del día 2 -> "));
+                        if (dia1Int == dia2Int && horaDia1 > horaDia2) {
+                            System.out.println("La hora del día 1 tiene que ser mayor o igual que la del dia 2");
+                        } else if (horaDia1 < 0 || horaDia1 > 23) {
+                            System.out.println("Introduce de 0-23 horas");
+
+                        } else {
+                            correcto = false;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("\nERROR: INTRODUCE UN NÚMERO!!!\n");
+                    } catch (Exception e) {
+                        System.out.println("\nERROR INESPERADO!!!\n");
+                    }
+
+                } while (correcto);
+                System.out.println(dia1 + " " + dia2 + " ");
+
+                // Ya tengo los días y las horas, solo me queda calcular cuanto hay entre una y
+                // otras
+                int horas_entre_dias = (dia2Int * 24 + horaDia2) - (dia1Int * 24 + horaDia1);
+
+                System.out.println(horas_entre_dias);
                 break;
 
             case 31: // EJERCICIO 31
@@ -842,7 +936,7 @@ public class App {
                                 comprobar que la altura sea un número impar mayor o igual a 3, en caso contrario se debe mostrar un mensaje
                                 de error.
                                     """);
-                boolean correcto = true;
+                correcto = true;
 
                 do {
                     altura = Integer.parseInt(System.console().readLine("Por favor, introduce la altura de la X: "));
@@ -907,7 +1001,6 @@ public class App {
                 numero = Integer
                         .parseInt(System.console().readLine("Por favor introduzca un número entero positivo: "));
 
-                
                 correcto = false;
                 aux = numero;
                 digitosn = 0;
@@ -932,7 +1025,7 @@ public class App {
                 System.out.print("en el sistema de palotes.");
                 break;
 
-                case 38: // EJERCICIO 38
+            case 38: // EJERCICIO 38
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 38" + ut.RESET);
                 System.out.println(
                         """
@@ -941,13 +1034,13 @@ public class App {
                                 contrariose debe mostrar un mensaje de error.
                                         """);
                 altura = Integer.parseInt(System.console().readLine("Introduce la altura mayor a 2: "));
-                
+
                 int asteriscos = altura;
                 int espacios = 0;
                 aux = altura;
-                int mitad = (int)Math.ceil(altura/2);
-                
-                for (i = 0; i < altura; i++ ) {
+                int mitad = (int) Math.ceil(altura / 2);
+
+                for (i = 0; i < altura; i++) {
                     for (int j = 0; j < espacios; j++) {
                         System.out.print(" ");
                     }
@@ -955,9 +1048,9 @@ public class App {
                         System.out.print("*");
                     }
 
-                    if (i >= mitad){
+                    if (i >= mitad) {
                         espacios--;
-                        asteriscos+=2;
+                        asteriscos += 2;
                     } else {
                         espacios++;
                         asteriscos -= 2;
@@ -966,16 +1059,17 @@ public class App {
                 }
                 break;
 
-                case 39: // EJERCICIO 39
+            case 39: // EJERCICIO 39
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 39" + ut.RESET);
                 System.out.println(
                         """
-                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación 
-                                los números desde el 1 al número introducido junto con su factorial. 
+                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación
+                                los números desde el 1 al número introducido junto con su factorial.
                                         """);
 
-                numero = Integer.parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
-                
+                numero = Integer
+                        .parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+
                 for (i = 1; i <= numero; i++) {
                     int factorial = 1;
                     for (int j = 1; j <= i; j++) {
@@ -985,7 +1079,7 @@ public class App {
                 }
                 break;
 
-             case 40: // EJERCICIO 40
+            case 40: // EJERCICIO 40
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 40" + ut.RESET);
                 System.out.println(
                         """
@@ -993,10 +1087,10 @@ public class App {
                                 El programa debe pedir la altura. Se debe comprobar que la altura sea un número
                                 impar mayor o igual a 3, en case contrario se debe mostrar un mensaje de error.
                                         """);
-                
+
                 altura = Integer.parseInt(System.console().readLine("Por favor introduzca la altura del rombo: "));
 
-                mitad = (int)Math.ceil(altura/2);
+                mitad = (int) Math.ceil(altura / 2);
                 espacios = altura - mitad;
                 asteriscos = 1;
 
@@ -1004,22 +1098,51 @@ public class App {
                     for (int j = 0; j < espacios; j++) {
                         System.out.print(" ");
                     }
-                    for (int j = 1; j <= asteriscos; j++){
+                    for (int j = 1; j <= asteriscos; j++) {
                         if (asteriscos == j || j == 1) {
                             System.out.print("*");
-                        } else System.out.print(" ");
+                        } else
+                            System.out.print(" ");
                     }
                     if (i < mitad) {
                         espacios--;
-                        asteriscos+=2;
+                        asteriscos += 2;
                     } else {
                         espacios++;
-                        asteriscos-=2;
+                        asteriscos -= 2;
                     }
 
                     System.out.println(" ");
                 }
-                
+                break;
+
+            case 41: // EJERCICIO 41
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 41" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que diga cuántos dígitos pares y cuántos dígitos impares hay dentro de un número.
+                                Se recomienda usar long en lugar de int ya que el primero admite números más largos.
+                                        """);
+
+                numero_long = Long.parseLong(System.console().readLine("Introduce un número positivo: "));
+
+                aux_long = numero_long;
+                contador_impar = 0;
+                int contador_par = 0;
+                long digiton_long = 0;
+
+                while (aux_long > 0) {
+                    digiton_long = aux_long % 10;
+                    if (digiton_long % 2 == 0) {
+                        contador_par++;
+                    } else {
+                        contador_impar++;
+                    }
+                    aux_long /= 10;
+                }
+                System.out.printf("Numero: %d | Pares: %d | Impares: %d%n", numero_long, contador_par, contador_impar);
+                break;
+
         }
     }
 }
