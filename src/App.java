@@ -3,7 +3,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         System.out.println("""
-                                                 ELIGE UN EJERCICIO
+                                                           ELIGE UN EJERCICIO
                 --------------------------------------------------------------------------------------------------------
                 EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |
                 EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 |
@@ -1143,6 +1143,30 @@ public class App {
                 System.out.printf("Numero: %d | Pares: %d | Impares: %d%n", numero_long, contador_par, contador_impar);
                 break;
 
+                case 42: // EJERCICIO 42
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 42" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación los 5 números consecutivo a 
+                                partir del número introducido. Al lado de cada número se debe indicar si se trata de un primo o no.
+                                        """);
+                numero = Integer.parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+
+               
+
+                for (i = numero; i < numero+5; i++) {
+                    esprimo = true;
+                    for (int j = 2; j <= Math.sqrt(i); j++) {
+                        if (i % j == 0) {
+                            System.out.printf("%d no es primo%n", i);
+                            esprimo = false;
+                            j = (int)Math.sqrt(i);
+                        }
+                    }
+                    if (esprimo) {
+                        System.out.printf("%d es primo%n", i);
+                    }
+                }
         }
     }
 }
