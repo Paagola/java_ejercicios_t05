@@ -6,9 +6,9 @@ public class App {
                                                            ELIGE UN EJERCICIO
                 --------------------------------------------------------------------------------------------------------
                 EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |
-                EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 |
-                EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 |
-                EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 |
+                EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |
+                EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |
+                EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |
                 EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 |
                 EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 |
                 EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |
@@ -1143,24 +1143,23 @@ public class App {
                 System.out.printf("Numero: %d | Pares: %d | Impares: %d%n", numero_long, contador_par, contador_impar);
                 break;
 
-                case 42: // EJERCICIO 42
+            case 42: // EJERCICIO 42
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 42" + ut.RESET);
                 System.out.println(
                         """
-                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación los 5 números consecutivo a 
+                                Escribe un programa que pida un número entero positivo por teclado y que muestre a continuación los 5 números consecutivo a
                                 partir del número introducido. Al lado de cada número se debe indicar si se trata de un primo o no.
                                         """);
-                numero = Integer.parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+                numero = Integer
+                        .parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
 
-               
-
-                for (i = numero; i < numero+5; i++) {
+                for (i = numero; i < numero + 5; i++) {
                     esprimo = true;
                     for (int j = 2; j <= Math.sqrt(i); j++) {
                         if (i % j == 0) {
                             System.out.printf("%d no es primo%n", i);
                             esprimo = false;
-                            j = (int)Math.sqrt(i);
+                            j = (int) Math.sqrt(i);
                         }
                     }
                     if (esprimo) {
@@ -1169,7 +1168,7 @@ public class App {
                 }
                 break;
 
-                case 43: // EJERCICIO 43
+            case 43: // EJERCICIO 43
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 43" + ut.RESET);
                 System.out.println(
                         """
@@ -1179,8 +1178,10 @@ public class App {
                                 mínimo y la posición en la que se parte el número está entre 2 y la longitud del número.
                                 No se permiten el uso de funciones de manejo de Strings.
                                         """);
-                numero = Integer.parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
-                digitosn = Integer.parseInt(System.console().readLine("Introduzca la posicióna partir de la cual quiere partir el número: "));
+                numero = Integer
+                        .parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+                digitosn = Integer.parseInt(System.console()
+                        .readLine("Introduzca la posicióna partir de la cual quiere partir el número: "));
 
                 aux = numero * 10 + 1;
                 aux_longReverse = 0;
@@ -1197,18 +1198,51 @@ public class App {
 
                 for (i = 1; i < contador; i++) {
                     if (i < digitosn) {
-                        numeron = numeron * 10 + (int)(aux_longReverse % 10); 
+                        numeron = numeron * 10 + (int) (aux_longReverse % 10);
                     } else {
-                        numeron2 = numeron2 * 10 + (int)(aux_longReverse % 10); 
+                        numeron2 = numeron2 * 10 + (int) (aux_longReverse % 10);
                     }
                     aux_longReverse /= 10;
                 }
 
                 System.out.printf("Los números partidos son el %d y el %d.", numeron, numeron2);
+                break;
 
+            case 44: // EJERCICIO 44
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 44" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que sea capaz de insertar un dígito dentro de un núermo indicando
+                                la posición. El nuevodígito se colocará en la posición indicada y el resto de dígitos se
+                                desplazará hacia la derecha.
+                                        """);
+                 numero = Integer
+                        .parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
 
+                int posicion = Integer
+                        .parseInt(System.console().readLine("Introduzca la posición donde quiere insertar: "));
+                digitosn = Integer.parseInt(System.console()
+                        .readLine("Introduzca el dígtito que quiere insertar: "));
 
+                aux = numero * 10 + 1;
+                aux_longReverse = 0;
+                contador = 0;
+
+                while (aux > 0) {
+                    aux_longReverse = aux_longReverse * 10 + (aux % 10);
+                    aux /= 10;
+                    contador++;
+                }
                 
+
+                for (i = 1; i < contador; i++) {
+                    if (i == posicion) {
+                        aux = aux * 10 + digitosn;
+                    }
+                    aux = aux * 10 + (int)(aux_longReverse % 10);
+                    aux_longReverse /= 10;
+                }
+                System.out.println("El número resultante es " + aux);
         }
     }
 }
