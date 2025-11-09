@@ -1216,7 +1216,7 @@ public class App {
                                 la posición. El nuevodígito se colocará en la posición indicada y el resto de dígitos se
                                 desplazará hacia la derecha.
                                         """);
-                 numero = Integer
+                numero = Integer
                         .parseInt(System.console().readLine("Por favor, introduzca un número entero positivo: "));
 
                 int posicion = Integer
@@ -1243,6 +1243,48 @@ public class App {
                     aux_longReverse /= 10;
                 }
                 System.out.println("El número resultante es " + aux);
+                break;
+
+                case 45: // EJERCICIO 45
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 45" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que cambie un dígito dentro de un número dando la posición y 
+                                el valor nuevo. Las posiciones se cuentan de izquierda a derecha empezando por el I. 
+                                Se recomienda usar long en lugar de int ya que el primero admite números más largos. 
+                                Suponemos que el usuario introduce correctamente los datos.
+                                        """);
+
+                numero_long = Long
+                        .parseLong(System.console().readLine("Por favor, introduzca un número entero positivo: "));
+
+                posicion = Integer
+                        .parseInt(System.console().readLine("Introduzca la posición donde quiere insertar: "));
+
+                digitosn = Integer.parseInt(System.console()
+                        .readLine("Introduzca el dígtito que quiere insertar: "));
+
+                aux_long = numero_long * 10 + 1;
+                aux_longReverse = 0;
+                contador = 0;
+
+                while (aux_long > 0) {
+                    aux_longReverse = aux_longReverse * 10 + (aux_long % 10);
+                    aux_long /= 10;
+                    contador++;
+                }
+                
+
+                for (i = 1; i < contador; i++) {
+                    if (i == posicion) {
+                        aux_long = aux_long * 10 + digitosn;
+                    } else {
+                        aux_long = aux_long * 10 + (int)(aux_longReverse % 10);
+                    }
+                    aux_longReverse /= 10;
+                }
+                System.out.println("El número resultante es " + aux_long);
+
         }
     }
 }
