@@ -1233,25 +1233,24 @@ public class App {
                     aux /= 10;
                     contador++;
                 }
-                
 
                 for (i = 1; i < contador; i++) {
                     if (i == posicion) {
                         aux = aux * 10 + digitosn;
                     }
-                    aux = aux * 10 + (int)(aux_longReverse % 10);
+                    aux = aux * 10 + (int) (aux_longReverse % 10);
                     aux_longReverse /= 10;
                 }
                 System.out.println("El número resultante es " + aux);
                 break;
 
-                case 45: // EJERCICIO 45
+            case 45: // EJERCICIO 45
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 45" + ut.RESET);
                 System.out.println(
                         """
-                                Escribe un programa que cambie un dígito dentro de un número dando la posición y 
-                                el valor nuevo. Las posiciones se cuentan de izquierda a derecha empezando por el I. 
-                                Se recomienda usar long en lugar de int ya que el primero admite números más largos. 
+                                Escribe un programa que cambie un dígito dentro de un número dando la posición y
+                                el valor nuevo. Las posiciones se cuentan de izquierda a derecha empezando por el I.
+                                Se recomienda usar long en lugar de int ya que el primero admite números más largos.
                                 Suponemos que el usuario introduce correctamente los datos.
                                         """);
 
@@ -1273,24 +1272,23 @@ public class App {
                     aux_long /= 10;
                     contador++;
                 }
-                
 
                 for (i = 1; i < contador; i++) {
                     if (i == posicion) {
                         aux_long = aux_long * 10 + digitosn;
                     } else {
-                        aux_long = aux_long * 10 + (int)(aux_longReverse % 10);
+                        aux_long = aux_long * 10 + (int) (aux_longReverse % 10);
                     }
                     aux_longReverse /= 10;
                 }
                 System.out.println("El número resultante es " + aux_long);
                 break;
 
-                case 46: // EJERCICIO 46
+            case 46: // EJERCICIO 46
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 45" + ut.RESET);
                 System.out.println(
                         """
-                                Realiza un programa que pinte por pantalla un rectángulo hueco hecho con asteriscos. 
+                                Realiza un programa que pinte por pantalla un rectángulo hueco hecho con asteriscos.
                                 Se debe pedir al usuario la anchura y la altura. Hay que comprobar que tanto la anchura
                                 como la altura sean mayores o iguales que 2, en caso contrario se debe mostrar
                                 un mensaje de error.
@@ -1302,7 +1300,7 @@ public class App {
                 altura = Integer
                         .parseInt(System.console().readLine("Altura rectángulo: "));
 
-                for (i = 1; i <= altura; i++){
+                for (i = 1; i <= altura; i++) {
                     for (int j = 1; j <= anchon; j++) {
                         if (i == 1 || i == altura || j == 1 || j == anchon) {
                             System.out.print("* ");
@@ -1313,7 +1311,7 @@ public class App {
                     System.out.println(" ");
                 }
 
-                case 59: // EJERCICIO 59
+            case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
                 System.out.println(
                         """
@@ -1321,29 +1319,153 @@ public class App {
                                 Suponemos que el usuario introduce una altura mayor o igual a 4.
                                         """);
 
-                                        altura = Integer
-                                        .parseInt(System.console().readLine("Altura : "));
+                altura = Integer
+                        .parseInt(System.console().readLine("Altura : "));
 
-                                        aux = altura;
-                                        espacios = (altura - 2);
-                                        System.out.printf("%" + (espacios + 1) + "s%n", "*");
-                                        int pintar = 1;
+                aux = altura;
+                espacios = (altura - 2);
+                System.out.printf("%" + (espacios + 1) + "s%n", "*");
+                int pintar = 1;
 
+                for (i = 0; i < altura - 2; i++) {
+                    System.out.printf("%" + espacios + "s", " ");
+                    espacios--;
+                    for (int j = 0; j < pintar; j++) {
+                        if (j == 0 || j == pintar - 1 || i == altura - 3) {
+                            System.out.print("^");
+                        } else {
+                            System.out.print(" ");
+                        }
+                    }
+                    pintar += 2;
+                    System.out.println(" ");
+                }
+                System.out.printf("%" + (altura - 1) + "s%n", "Y");
+                break;
 
-                                        for (i = 0; i < altura-2; i++) {
-                                            System.out.printf("%" + espacios + "s", " ");
-                                            espacios--;
-                                            for (int j = 0; j < pintar; j++) {
-                                                if (j == 0 || j == pintar-1 || i == altura-3) {
-                                                    System.out.print("^");
-                                                } else {
-                                                    System.out.print(" ");
-                                                }
-                                            }
-                                            pintar += 2;
-                                            System.out.println(" ");
-                                        }
-                                        System.out.printf("%" + (altura - 1) + "s%n", "Y");
+            case 63: // EJERCICIO 59
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte dos pirámides rellena hechas con asteriscos, una al lado de la
+                                otra y separadas por un espacio en una base.
+                                        """);
+
+                int pir1 = Integer
+                        .parseInt(System.console().readLine("Altura pirámide 1: "));
+
+                int pir2 = Integer
+                        .parseInt(System.console().readLine("Altura pirámide 2: "));
+
+                int espacios1 = pir1 - 1;
+                int asteriscos1 = 1;
+                int espacios2 = pir2;
+                int asteriscos2 = 1;
+
+                if (pir1 > pir2) {
+                    for (i = 0; i < pir1; i++) {
+                        if (i < pir1 - pir2) {
+                            System.out.printf("%" + espacios1 + "s", " ");
+
+                            // Asteriscos
+                            for (int j = 0; j < asteriscos1; j++) {
+                                System.out.print("*");
+                            }
+
+                            // Espacios por detrás
+                            System.out.printf("%" + espacios1 + "s", " ");
+                            asteriscos1 += 2;
+                            espacios1--;
+                            System.out.println(" ");
+                        } else {
+                            if (espacios1 > 0) {
+                                System.out.printf("%" + espacios1 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+
+                            // Asteriscos
+                            for (int j = 0; j < asteriscos1; j++) {
+                                System.out.print("*");
+                            }
+
+                            // Espacios por detrás
+                            if (espacios2 > 0) {
+                                System.out.printf("%" + espacios2 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+                            asteriscos1 += 2;
+                            espacios1--;
+
+                            System.out.printf("%" + espacios2 + "s", " ");
+
+                            // Asteriscos2
+                            for (int j = 0; j < asteriscos2; j++) {
+                                System.out.print("*");
+                            }
+                            asteriscos2 += 2;
+                            espacios2--;
+                            System.out.println(" ");
+
+                        }
+                    }
+
+                } else {
+                    for (i = 0; i < pir2; i++) {
+                        if (i < pir2 - pir1) {
+                            System.out.printf("%" + (espacios1 * 2 + 1) + "s", " ");
+
+                            if (espacios2 > 0) {
+                                System.out.printf("%" + espacios2 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+
+                            for (int j = 0; j < asteriscos2; j++) {
+                                System.out.print("*");
+                            }
+                            asteriscos2 += 2;
+                            espacios2--;
+                            System.out.println(" ");
+
+                        } else {
+
+                            if (espacios1 > 0) {
+                                System.out.printf("%" + espacios1 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+
+                            for (int j = 0; j < asteriscos1; j++) {
+                                System.out.print("*");
+                            }
+                            asteriscos1+=2;
+                            if (espacios1 > 0) {
+                                System.out.printf("%" + espacios1 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+                            
+                            espacios1--;
+
+                            if (espacios2 > 0) {
+                                System.out.printf("%" + espacios2 + "s", " ");
+                            } else {
+                                System.out.print("");
+                            }
+
+                            for (int j = 0; j < asteriscos2; j++) {
+                                System.out.print("*");
+                            }
+                            asteriscos2 += 2;
+                            espacios2--;
+                            System.out.println(" ");
+
+                        }
+
+                    }
+                }
         }
     }
 }
