@@ -5,16 +5,16 @@ public class App {
         System.out.println("""
                                                            ELIGE UN EJERCICIO
                 --------------------------------------------------------------------------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |
-                EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |
-                EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |
-                EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |
-                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |
-                EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 |
-                EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |
-                EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 |
-                EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |
-                EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |
+                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |                    | 
+                EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
+                EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
+                EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
+                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |                    |
+                EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 |                    |
+                EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |                    |                    |
+                EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 |                    |                    |
+                EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |                    | EJERCICIO 59 -> 59 | 
+                EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |                    |                    |
                 """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -1285,7 +1285,7 @@ public class App {
                 break;
 
             case 46: // EJERCICIO 46
-                System.out.println(ut.GREEN_BOLD + "EJERCICIO 45" + ut.RESET);
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 46" + ut.RESET);
                 System.out.println(
                         """
                                 Realiza un programa que pinte por pantalla un rectángulo hueco hecho con asteriscos.
@@ -1310,7 +1310,35 @@ public class App {
                     }
                     System.out.println(" ");
                 }
+                break;
 
+             case 47: // EJERCICIO 47
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 47" + ut.RESET);
+                System.out.println(
+                        """
+                                Con motivo de celebración del día de la mujer, el 8 de marzo nos han encargadi realizar un programa que pinte un 8
+                                por pantalla usando la letra M. se pide al usuario la latura, que debe ser un número impar mayor o igual a 5.
+                                La anchura siempre será de 6 caracteres.
+                                        """);
+
+                altura = Integer.parseInt(System.console().readLine("Introduce altura del 8: "));
+
+                mitad = (int)(Math.ceil(altura/2));
+
+                for (i = 1; i <= altura; i++) {
+                    for (int j = 1; j <= 6; j++) {
+                        if (i == 1 || i == altura || i == mitad + 1) {
+                            System.out.print("M");
+                        } else if (j == 1 || j == 6) {
+                            System.out.print("M");
+                        } else {
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.println("");
+                }
+
+                break;
             case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
                 System.out.println(
@@ -1344,7 +1372,7 @@ public class App {
                 break;
 
             case 63: // EJERCICIO 59
-                System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 63" + ut.RESET);
                 System.out.println(
                         """
                                 Realiza un programa que pinte dos pirámides rellena hechas con asteriscos, una al lado de la
