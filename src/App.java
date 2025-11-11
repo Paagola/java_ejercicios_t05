@@ -1312,6 +1312,38 @@ public class App {
                     }
                     System.out.println(" ");
                 }
+
+                case 59: // EJERCICIO 59
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pinte por pantalla un árbol de navidad.El usuario debe introducir la altura.
+                                Suponemos que el usuario introduce una altura mayor o igual a 4.
+                                        """);
+
+                                        altura = Integer
+                                        .parseInt(System.console().readLine("Altura : "));
+
+                                        aux = altura;
+                                        espacios = (altura - 2);
+                                        System.out.printf("%" + (espacios + 1) + "s%n", "*");
+                                        int pintar = 1;
+
+
+                                        for (i = 0; i < altura-2; i++) {
+                                            System.out.printf("%" + espacios + "s", " ");
+                                            espacios--;
+                                            for (int j = 0; j < pintar; j++) {
+                                                if (j == 0 || j == pintar-1 || i == altura-3) {
+                                                    System.out.print("^");
+                                                } else {
+                                                    System.out.print(" ");
+                                                }
+                                            }
+                                            pintar += 2;
+                                            System.out.println(" ");
+                                        }
+                                        System.out.printf("%" + (altura - 1) + "s%n", "Y");
         }
     }
 }
