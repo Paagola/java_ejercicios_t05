@@ -2,20 +2,21 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("""
-                                                           ELIGE UN EJERCICIO
-                --------------------------------------------------------------------------------------------------------
-                EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |                    | 
-                EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
-                EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
-                EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
-                EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |                    |
-                EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 |                    |
-                EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 |                    |                    |
-                EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 |                    |                    |
-                EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |                    | EJERCICIO 59 -> 59 | 
-                EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |                    |                    |
-                """);
+        System.out.println(
+                """
+                                                                                       ELIGE UN EJERCICIO
+                        ------------------------------------------------------------------------------------------------------------------------------------------------
+                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |                    |
+                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
+                        EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
+                        EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
+                        EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |                    |
+                        EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 |                    |
+                        EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 |                    |
+                        EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 |                    |
+                        EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |                    | EJERCICIO 59 -> 59 |
+                        EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |                    |                    |
+                        """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
 
@@ -1312,7 +1313,7 @@ public class App {
                 }
                 break;
 
-             case 47: // EJERCICIO 47
+            case 47: // EJERCICIO 47
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 47" + ut.RESET);
                 System.out.println(
                         """
@@ -1323,7 +1324,7 @@ public class App {
 
                 altura = Integer.parseInt(System.console().readLine("Introduce altura del 8: "));
 
-                mitad = (int)(Math.ceil(altura/2));
+                mitad = (int) (Math.ceil(altura / 2));
 
                 for (i = 1; i <= altura; i++) {
                     for (int j = 1; j <= 6; j++) {
@@ -1339,6 +1340,62 @@ public class App {
                 }
 
                 break;
+
+            case 48: // EJERCICIO 48
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 48" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que diga los dígitos que aparecen y los que no aparecen en un número introducido
+                                por teclado. El orden es el que muestra en los ejemplos. Utiliza el tipo long para que el usuario pueda
+                                introducir número largos.
+                                        """);
+            numero_long = Long.parseLong(System.console().readLine("Numero entero: "));
+
+            aux_long = numero_long;
+            contador = 0;
+
+            while (aux_long > 0) {
+                aux_long /= 10;
+                contador++;
+            }
+            
+            System.out.print("Dígitos que aparecen en el número: ");
+            
+                for (i = 0; i <= 9; i++) {
+                    aux_long = numero_long;
+                    for (int j = 0; j < contador; j++) {
+                        digiton_long = aux_long % 10;
+                        aux_long /= 10;
+                        if (i == digiton_long) {
+                            System.out.print(digiton_long+" ");
+                            j=8;
+                        }
+                    }
+                }
+            
+            digiton_long = 0;
+           
+            System.out.println("\nDígitos que no aparecen en el numero: ");
+            for (i = 0; i <= 9; i++) {
+                 correcto = false;
+                    aux_long = numero_long;
+                    for (int j = 0; j < contador; j++) {
+                        digiton_long = aux_long % 10;
+                        aux_long /= 10;
+                        if (i == digiton_long) {
+                            j=8;
+                            correcto = true;
+                        }
+                    }
+                    if (!correcto) {
+                        System.out.print(i+" ");
+                    }
+                }
+
+
+
+            break;
+
             case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
                 System.out.println(
@@ -1468,13 +1525,13 @@ public class App {
                             for (int j = 0; j < asteriscos1; j++) {
                                 System.out.print("*");
                             }
-                            asteriscos1+=2;
+                            asteriscos1 += 2;
                             if (espacios1 > 0) {
                                 System.out.printf("%" + espacios1 + "s", " ");
                             } else {
                                 System.out.print("");
                             }
-                            
+
                             espacios1--;
 
                             if (espacios2 > 0) {
