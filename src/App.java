@@ -1,6 +1,32 @@
 
 public class App {
+
+    public static int contar_Digit(int num) {
+        int contador = 0;
+        if (num == 0) {
+            return 1;
+        }
+        num = Math.abs(num); // Para manejar números negativos
+        while (num > 0) {
+            num /= 10;
+            contador++;
+        }
+        return contador;
+    }
+
+    public static int invertirNumero(int num) {
+        int invertido = 0;
+        while (num != 0) {
+            invertido = invertido * 10 + num % 10;
+            num /= 10;
+        }
+        return invertido;
+    }
+    
     public static void main(String[] args) throws Exception {
+
+
+    
 
         System.out.println(
                 """
@@ -1349,52 +1375,72 @@ public class App {
                                 por teclado. El orden es el que muestra en los ejemplos. Utiliza el tipo long para que el usuario pueda
                                 introducir número largos.
                                         """);
-            numero_long = Long.parseLong(System.console().readLine("Numero entero: "));
+                numero_long = Long.parseLong(System.console().readLine("Numero entero: "));
 
-            aux_long = numero_long;
-            contador = 0;
+                aux_long = numero_long;
+                contador = 0;
 
-            while (aux_long > 0) {
-                aux_long /= 10;
-                contador++;
-            }
-            
-            System.out.print("Dígitos que aparecen en el número: ");
-            
+                while (aux_long > 0) {
+                    aux_long /= 10;
+                    contador++;
+                }
+
+                System.out.print("Dígitos que aparecen en el número: ");
+
                 for (i = 0; i <= 9; i++) {
                     aux_long = numero_long;
                     for (int j = 0; j < contador; j++) {
                         digiton_long = aux_long % 10;
                         aux_long /= 10;
                         if (i == digiton_long) {
-                            System.out.print(digiton_long+" ");
-                            j=8;
+                            System.out.print(digiton_long + " ");
+                            j = 8;
                         }
                     }
                 }
-            
-            digiton_long = 0;
-           
-            System.out.println("\nDígitos que no aparecen en el numero: ");
-            for (i = 0; i <= 9; i++) {
-                 correcto = false;
+
+                digiton_long = 0;
+
+                System.out.println("\nDígitos que no aparecen en el numero: ");
+                for (i = 0; i <= 9; i++) {
+                    correcto = false;
                     aux_long = numero_long;
                     for (int j = 0; j < contador; j++) {
                         digiton_long = aux_long % 10;
                         aux_long /= 10;
                         if (i == digiton_long) {
-                            j=8;
+                            j = 8;
                             correcto = true;
                         }
                     }
                     if (!correcto) {
-                        System.out.print(i+" ");
+                        System.out.print(i + " ");
                     }
                 }
 
+            case 55: // EJERCICIO 55
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que sea capaz de desplazar todos los dígitos de un número de izauierda a derecha
+                                una posición. El dígitode más a la derecha, pasaría a dar la vuelta y se colocaría a la izquierda.
+                                Si el número tiene un solo dígito, se queda igual
+                                        """);
+                numero = Integer.parseInt(System.console().readLine("Introduzca un número: "));
+                contador = contar_Digit(numero);
+                aux = numero % 10;
+                numero /= 10;
+                int auxReverse = invertirNumero(numero);
+
+                for( i = 0; i < contador-1; i++ ) {
+                    aux = aux * 10 + (auxReverse % 10);
+                    auxReverse /= 10;
+                }
+
+                System.out.println("Numero: "+ aux);
 
 
-            break;
+                break;
 
             case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
