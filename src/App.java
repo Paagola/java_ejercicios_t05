@@ -36,10 +36,10 @@ public class App {
                         EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
                         EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
                         EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
-                        EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 |                    |
-                        EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 |                    |
-                        EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 |                    |
-                        EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 |                    |
+                        EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 | EJERCICIO 55 -> 55 |
+                        EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 | EJERCICIO 56 -> 55 |
+                        EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 |
+                        EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 | EJERCICIO 58 -> 58 |
                         EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |                    | EJERCICIO 59 -> 59 |
                         EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |                    |                    |
                         """);
@@ -1441,6 +1441,77 @@ public class App {
 
 
                 break;
+
+            case 56: // EJERCICIO 56
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 56" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa uqe pinte un tríangulo relleno tal como se muestra en los ejemplos. 
+                                El usuario debe introducir la altura de la figura.
+                                        """);
+                numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
+                espacios = 0;
+                asteriscos = numero;
+                for (i = 0; i < numero; i++ ) {
+                    System.out.printf((espacios > 0)? "%" + espacios + "s": "", " ");
+                    for (int j = 0; j < asteriscos; j++) {
+                        System.out.print("*");
+                    } System.out.println("");
+                    asteriscos--;
+                    espacios++;
+                }
+                break;
+
+
+            case 57: // EJERCICIO 57
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 57" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte un tríangulo hueco. El usuario debe introducir la altura de la 
+                                figura.
+                                        """);
+            numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
+            
+            espacios = 0;
+                asteriscos = numero;
+                for (i = 0; i < numero; i++ ) {
+                    System.out.printf((espacios > 0)? "%" + espacios + "s": "", " ");
+                    for (int j = 0; j < asteriscos; j++) {
+                        
+                        if (j == 0 || j==asteriscos-1 || i == 0){
+                            System.out.print("*");
+                        } else {
+                            System.out.print(" ");
+                        }
+                    } System.out.println("");
+                    asteriscos--;
+                    espacios++;
+                }
+                break;
+
+            case 58: // EJERCICIO 58
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 58" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que calcule la media de los dígitos que contiene un número entero introducido por teclado.
+                                        """);
+            
+            numero = Integer.parseInt(System.console().readLine("Introduzca un número: "));
+
+            aux = numero;
+            int suma = 0;
+            contador = 0;
+
+            while (aux > 0) {
+                suma = suma + (aux%10);
+                contador++;
+                aux /= 10;
+            }
+
+            double media = (double)suma / (double)contador;
+            System.out.printf("Numero: %d%nMedia: %.1f%n", numero, media);
+
+
 
             case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
