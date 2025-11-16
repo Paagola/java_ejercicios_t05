@@ -32,7 +32,6 @@ public class App {
         return invertido;
     }
 
-
     public static void main(String[] args) throws Exception {
 
         System.out.println(
@@ -1495,52 +1494,79 @@ public class App {
                                 (j == 1 || (j >= 3 && j <= 6)
                                         || j >= 8)) {
                             System.out.print("*");
-                        } else if (j == 2 || j == 7 ) {
+                        } else if (j == 2 || j == 7) {
                             System.out.printf("%" + espacios + "s", " ");
-                        } else if (j == 1 || ((j==3 || j == 8) && i == 2) || ((j == 6  || j == 11) && i > 3)){
-                             System.out.print("*");
+                        } else if (j == 1 || ((j == 3 || j == 8) && i == 2) || ((j == 6 || j == 11) && i > 3)) {
+                            System.out.print("*");
                         } else {
                             System.out.print(" ");
                         }
 
-                    } System.out.println("");
+                    }
+                    System.out.println("");
                 }
 
                 break;
-            
+
             case 51: // EJERCICIO 51
-                System.out.println(ut.GREEN_BOLD + "EJERCICIO 50" + ut.RESET);
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 51" + ut.RESET);
                 System.out.println(
                         """
-                            El gusano numérico se come los dígitos con forma de rosquilla, o sea, el 0
-                            y el 8 (todos los que encuentre). Realiza un programa que muestre un número
-                            antes y después de haber sido comido por el gusano. Si el animalito no se ha
-                            comido ningún dígito, el programa debe indicarlo.
-                                        """);
-            numero_long = Long.parseLong(System.console().readLine("Introduzca un número mayor que 0: "));
-            contador = 0;
-            aux_longReverse = invertirNumeroLong(numero_long);
-            aux_long = 0;
+                                El gusano numérico se come los dígitos con forma de rosquilla, o sea, el 0
+                                y el 8 (todos los que encuentre). Realiza un programa que muestre un número
+                                antes y después de haber sido comido por el gusano. Si el animalito no se ha
+                                comido ningún dígito, el programa debe indicarlo.
+                                            """);
+                numero_long = Long.parseLong(System.console().readLine("Introduzca un número mayor que 0: "));
+                contador = 0;
+                aux_longReverse = invertirNumeroLong(numero_long);
+                aux_long = 0;
 
-            while (aux_longReverse > 0) {
-                if (aux_longReverse % 10 == 0 || aux_longReverse % 10 == 8) {
-                    contador++;
-                    aux_longReverse /= 10;
-                } else {
-                    aux_long = aux_long * 10 + (aux_longReverse % 10);
-                    aux_longReverse /= 10;
+                while (aux_longReverse > 0) {
+                    if (aux_longReverse % 10 == 0 || aux_longReverse % 10 == 8) {
+                        contador++;
+                        aux_longReverse /= 10;
+                    } else {
+                        aux_long = aux_long * 10 + (aux_longReverse % 10);
+                        aux_longReverse /= 10;
+                    }
                 }
-            }
 
-            if (contador == 0) {
-                System.out.println("El gusano numérico no se ha comido ningún dígito.");
-            } else {
-                System.out.println("Después de haber sido comido por el gusano numérico se queda en "+ aux_long);
-            }
+                if (contador == 0) {
+                    System.out.println("El gusano numérico no se ha comido ningún dígito.");
+                } else {
+                    System.out.println("Después de haber sido comido por el gusano numérico se queda en " + aux_long);
+                }
 
-            break;
+                break;
 
-            
+            case 52: // EJERCICIO 52
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 52" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que sea capaz de desplazar todos lo dígitos de derecha a izquierda una posición.
+                                El dígito de más a la izquierda, pasaría a dar la vuelta y de colocaría a la derecha.
+                                Si el número tiene un solo dígito se queda igual.
+                                            """);
+
+                numero = Integer.parseInt(System.console().readLine("Introduzca un número: "));
+                contador = contar_Digit(numero);
+                int auxReverse = invertirNumero(numero);
+                int aux2 = auxReverse % 10;
+                auxReverse /= 10;
+                aux = 0;
+
+                for (i = 1; i <= contador-1; i++) {
+                    aux = aux * 10 + (auxReverse % 10);
+                    auxReverse /= 10;
+                }
+
+                aux = aux * 10 + (aux2);
+
+                System.out.println("Numero: " + aux);
+
+                break;
+
             case 55: // EJERCICIO 55
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
                 System.out.println(
@@ -1553,7 +1579,7 @@ public class App {
                 contador = contar_Digit(numero);
                 aux = numero % 10;
                 numero /= 10;
-                int auxReverse = invertirNumero(numero);
+                auxReverse = invertirNumero(numero);
 
                 for (i = 0; i < contador - 1; i++) {
                     aux = aux * 10 + (auxReverse % 10);
