@@ -38,8 +38,8 @@ public class App {
                 """
                                                                                        ELIGE UN EJERCICIO
                         ------------------------------------------------------------------------------------------------------------------------------------------------
-                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 |
-                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 | EJERCICIO 52 -> 52 |
+                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 | EJERCICIO 61 -> 61 
+                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 | EJERCICIO 52 -> 52 | EJERCICIO 62 -> 62 
                         EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 | EJERCICIO 53 -> 53 | EJERCICIO 63 -> 63
                         EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 | EJERCICIO 54 -> 54 |
                         EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 | EJERCICIO 55 -> 55 |
@@ -47,7 +47,7 @@ public class App {
                         EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 |
                         EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 | EJERCICIO 58 -> 58 |
                         EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 | EJERCICIO 49 -> 49 | EJERCICIO 59 -> 59 |
-                        EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 | EJERCICIO 50 -> 50 |                    |
+                        EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 | EJERCICIO 50 -> 50 | EJERCICIO 60 -> 60 |
                         """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -1744,7 +1744,7 @@ public class App {
                                         """);
 
                 altura = Integer
-                        .parseInt(System.console().readLine("Calcetines: "));
+                        .parseInt(System.console().readLine("Altura calcetines: "));
                 int espacios1 = 5;
                 int espacios2 = 2;
 
@@ -1787,11 +1787,40 @@ public class App {
                     espacios++;
                     espacios2-= 2;
                 }
-                
-
                 break;
 
-            case 63: // EJERCICIO 59
+            case 62: // EJERCICIO 62
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 62" + ut.RESET);
+                System.out.println(
+                        """
+                                Según cierta cultura oriental, los número de la suerte son el 3, el 7, el 8 y
+                                el 9. Los números de la mala suerte son el resto: el 0, el 1, el 2, el 4, el 5
+                                y el 6. Un número es afortunado si contiene más números de la suerte que de la
+                                mala suerte. Realiza un programa que diga si un numero introducido por teclado
+                                es afortunado o no.
+                                        """);
+            numero = Integer
+                        .parseInt(System.console().readLine("Numero: "));
+            
+            int contafort = 0;
+            int contmal = 0;
+            
+            aux = numero;
+            while (aux > 0) {
+                if (aux % 10 == 3 || aux % 10 == 7 || aux % 10 == 8 || aux % 10 == 9 ) {
+                    contafort++;
+                } else {
+                    contmal++;
+                }
+                aux /= 10;
+            }
+
+            System.out.println((contafort > contmal)? "El "+ numero + " es un número afortunado."
+            :"El " + numero + " no es un número afortunado.");                         
+
+            break;
+
+            case 63: // EJERCICIO 63
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 63" + ut.RESET);
                 System.out.println(
                         """
@@ -1914,6 +1943,32 @@ public class App {
 
                     }
                 }
+
+                break;
+
+                case 66: // EJERCICIO 64
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 66" + ut.RESET);
+                System.out.println(
+                        """
+                                Señal de cambio de carril
+                                        """);
+                altura = Integer
+                        .parseInt(System.console().readLine("Altura figura: "));
+                espacios = 0;
+                espacios2 = 4;
+
+                for (i = 1; i <= altura; i++) {
+                    if (i <= Math.ceil(altura/2)){
+                        System.out.printf((espacios > 0)? "%"+espacios+"s":"", " ");
+                        espacios++;
+                        System.out.printf("*%"+espacios2+"s*%n"," ");
+                    } else {
+                        System.out.printf((espacios > 0)? "%"+espacios+"s":"", " ");
+                        espacios--;
+                        System.out.printf("*%"+espacios2+"s*%n"," ");
+                    }
+                }
+
         }
     }
 }
