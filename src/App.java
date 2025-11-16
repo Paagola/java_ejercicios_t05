@@ -1417,6 +1417,52 @@ public class App {
                         System.out.print(i + " ");
                     }
                 }
+                break;
+
+            case 49: // EJERCICIO 48
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 49" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que calcule el máximo, el mínimo y la media de una serie de números enteros
+                                positivos introducidos por teclado. El programa terminará cuando el usuario introduzca 
+                                un número primo. Este último número no se tendrá en cuenta en los cálculos.El programa debe indicar 
+                                también cuántos números ha introducido el usuario (sin contar el primo que sirve para salir). 
+                                        """);
+                
+                double media = 0;
+                contador = 0;
+                int maximo = 0;
+                int minimo = 0;    
+
+                System.out.println("Introduce números, para terminar introduzca un número primo: ");
+                do {
+                    correcto = false;
+                    numero = Integer.parseInt(System.console().readLine("-> "));
+                    for (i = 2; i <= Math.sqrt(numero);i++){
+                        if (numero % i == 0) {
+                            correcto = true;
+                        }
+                    }
+
+                    if (contador == 0){minimo = numero;}
+
+                    if (correcto) {
+                        contador++;
+                        maximo = Math.max(maximo, numero);
+                        minimo = Math.min(minimo, numero);
+                        media = media + (double)numero;
+                    }
+                }while (correcto);
+
+                System.out.printf("""
+                        Has introducido %d números
+                        Máximo: %d
+                        Mínimo: %d
+                        Media: %.2f
+                        """, contador, maximo, minimo, (double)(media/contador));
+
+            break;
+
 
             case 55: // EJERCICIO 55
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
@@ -1508,7 +1554,7 @@ public class App {
                 aux /= 10;
             }
 
-            double media = (double)suma / (double)contador;
+            media = (double)suma / (double)contador;
             System.out.printf("Numero: %d%nMedia: %.1f%n", numero, media);
 
 
