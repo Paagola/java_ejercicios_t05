@@ -38,15 +38,15 @@ public class App {
                 """
                                                                                        ELIGE UN EJERCICIO
                         ------------------------------------------------------------------------------------------------------------------------------------------------
-                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 | EJERCICIO 61 -> 61 
-                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 | EJERCICIO 52 -> 52 | EJERCICIO 62 -> 62 
+                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 | EJERCICIO 61 -> 61
+                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 | EJERCICIO 52 -> 52 | EJERCICIO 62 -> 62
                         EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 | EJERCICIO 53 -> 53 | EJERCICIO 63 -> 63
                         EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 | EJERCICIO 54 -> 54 |
                         EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 | EJERCICIO 55 -> 55 |
                         EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 | EJERCICIO 56 -> 56 | EJERCICIO 66 -> 66
-                        EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 |
+                        EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 | EJERCICIO 67 -> 67
                         EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 | EJERCICIO 58 -> 58 |
-                        EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 | EJERCICIO 49 -> 49 | EJERCICIO 59 -> 59 |
+                        EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 | EJERCICIO 49 -> 49 | EJERCICIO 59 -> 59 | EJERCICIO 69 -> 69
                         EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 | EJERCICIO 50 -> 50 | EJERCICIO 60 -> 60 |
                         """);
         int num = Integer.parseInt(System.console().readLine("-> "));
@@ -1771,21 +1771,21 @@ public class App {
                 altura = Integer
                         .parseInt(System.console().readLine("Altura V (mayor o igual a 3): "));
                 espacios = 0;
-                espacios2 = altura*2-2;
+                espacios2 = altura * 2 - 2;
 
-                for (i = 1; i <= altura; i++){
+                for (i = 1; i <= altura; i++) {
 
-                    if ( i == altura) {
-                        System.out.printf((espacios > 0)? "%"+espacios+"s": "", " ");
+                    if (i == altura) {
+                        System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                         System.out.println("******");
                     } else {
-                        System.out.printf((espacios > 0)? "%"+espacios+"s": "", " ");
+                        System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                         System.out.print("***");
-                        System.out.printf((espacios2 > 0)? "%"+espacios2+"s": "", " ");
+                        System.out.printf((espacios2 > 0) ? "%" + espacios2 + "s" : "", " ");
                         System.out.println("***");
                     }
                     espacios++;
-                    espacios2-= 2;
+                    espacios2 -= 2;
                 }
                 break;
 
@@ -1799,26 +1799,26 @@ public class App {
                                 mala suerte. Realiza un programa que diga si un numero introducido por teclado
                                 es afortunado o no.
                                         """);
-            numero = Integer
+                numero = Integer
                         .parseInt(System.console().readLine("Numero: "));
-            
-            int contafort = 0;
-            int contmal = 0;
-            
-            aux = numero;
-            while (aux > 0) {
-                if (aux % 10 == 3 || aux % 10 == 7 || aux % 10 == 8 || aux % 10 == 9 ) {
-                    contafort++;
-                } else {
-                    contmal++;
+
+                int contafort = 0;
+                int contmal = 0;
+
+                aux = numero;
+                while (aux > 0) {
+                    if (aux % 10 == 3 || aux % 10 == 7 || aux % 10 == 8 || aux % 10 == 9) {
+                        contafort++;
+                    } else {
+                        contmal++;
+                    }
+                    aux /= 10;
                 }
-                aux /= 10;
-            }
 
-            System.out.println((contafort > contmal)? "El "+ numero + " es un número afortunado."
-            :"El " + numero + " no es un número afortunado.");                         
+                System.out.println((contafort > contmal) ? "El " + numero + " es un número afortunado."
+                        : "El " + numero + " no es un número afortunado.");
 
-            break;
+                break;
 
             case 63: // EJERCICIO 63
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 63" + ut.RESET);
@@ -1946,7 +1946,7 @@ public class App {
 
                 break;
 
-                case 66: // EJERCICIO 66
+            case 66: // EJERCICIO 66
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 66" + ut.RESET);
                 System.out.println(
                         """
@@ -1958,20 +1958,48 @@ public class App {
                 espacios2 = 4;
 
                 for (i = 1; i <= altura; i++) {
-                    if (i <= Math.ceil(altura/2)){
-                        System.out.printf((espacios > 0)? "%"+espacios+"s":"", " ");
+                    if (i <= Math.ceil(altura / 2)) {
+                        System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                         espacios++;
-                        System.out.printf("*%"+espacios2+"s*%n"," ");
+                        System.out.printf("*%" + espacios2 + "s*%n", " ");
                     } else {
-                        System.out.printf((espacios > 0)? "%"+espacios+"s":"", " ");
+                        System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                         espacios--;
-                        System.out.printf("*%"+espacios2+"s*%n"," ");
+                        System.out.printf("*%" + espacios2 + "s*%n", " ");
                     }
                 }
 
                 break;
 
-                case 69: // EJERCICIO 69
+            case 67: // EJERCICIO 67
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 67" + ut.RESET);
+                System.out.println(
+                        """
+                                Escalones
+                                        """);
+
+                numero = Integer.parseInt(System.console().readLine("Número de escalones: "));
+                altura = Integer.parseInt(System.console().readLine("Altura de escalon: "));
+
+                contador = 0;
+                asteriscos = 4;
+
+                for (i = 0; i < (numero * altura); i++) {
+
+                    for (int j = 0; j < asteriscos; j++) {
+                        System.out.print("*");
+                    }
+                    System.out.println("");
+                    contador++;
+                    if (contador == altura) {
+                        contador = 0;
+                        asteriscos *= 2;
+                    }
+
+                }
+                break;
+
+            case 69: // EJERCICIO 69
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 69" + ut.RESET);
                 System.out.println(
                         """
@@ -1985,25 +2013,26 @@ public class App {
                 asteriscos1 = 6;
                 asteriscos2 = 2;
 
-                for (i = 1; i <= altura; i++ ) {
-                    System.out.printf((espacios > 0)? "%"+espacios+"s":"", " ");
+                for (i = 1; i <= altura; i++) {
+                    System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                     if (i % 2 != 0) {
-                        for (int j = 0; j < asteriscos1;j++){
+                        for (int j = 0; j < asteriscos1; j++) {
                             System.out.print("*");
                         }
                         asteriscos1 += 4;
                         espacios--;
                     } else {
-                        for (int j = 0; j < asteriscos2;j++){
+                        for (int j = 0; j < asteriscos2; j++) {
                             System.out.print("*");
-                        } 
-                        System.out.printf("%"+4+"s", " ");
-                        for (int j = 0; j < asteriscos2;j++){
+                        }
+                        System.out.printf("%" + 4 + "s", " ");
+                        for (int j = 0; j < asteriscos2; j++) {
                             System.out.print("*");
-                        } 
+                        }
                         asteriscos2 += 2;
                         espacios--;
-                    } System.out.println("");
+                    }
+                    System.out.println("");
                 }
 
         }
