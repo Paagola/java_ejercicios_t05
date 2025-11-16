@@ -39,9 +39,9 @@ public class App {
                                                                                        ELIGE UN EJERCICIO
                         ------------------------------------------------------------------------------------------------------------------------------------------------
                         EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 |
-                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
-                        EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
-                        EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
+                        EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 | EJERCICIO 52 -> 52 |
+                        EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 | EJERCICIO 53 -> 53 | EJERCICIO 63 -> 63
+                        EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 | EJERCICIO 54 -> 54 |
                         EJERCICIO 5 -> 5   | EJERCICIO 15 -> 15 | EJERCICIO 25 ->    | EJERCICIO 35 -> 35 | EJERCICIO 45 -> 45 | EJERCICIO 55 -> 55 |
                         EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 | EJERCICIO 56 -> 55 |
                         EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 |
@@ -1732,6 +1732,36 @@ public class App {
                 System.out.printf("%" + (altura - 1) + "s%n", "Y");
                 break;
 
+            case 60: // EJERCICIO 60
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 60" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pinte por pantalla un par de calcetines, de los que se ponen
+                                al lado del árbol de Navidad para que Papá Noel deje sus regalos. El usuario
+                                debe introducir la altura. Suponemos que el usuario introduce una altura mayor
+                                o igual a 4. Observa que la tala de los calcetines y la distancia que hay entre ellos
+                                (dos espacios) no cambia, lo único que varía es la altura.
+                                        """);
+
+                altura = Integer
+                        .parseInt(System.console().readLine("Calcetines: "));
+                int espacios1 = 5;
+                int espacios2 = 2; 
+
+                for (i = 1; i <= altura; i++) {
+                    if (i >= altura-1) {
+                        System.out.print("******");
+                        System.out.printf("%"+espacios2+"s", " ");
+                        System.out.println("******");
+                    } else{
+                        System.out.print("***");
+                        System.out.printf("%"+espacios1+"s", " ");
+                        System.out.println("***");
+                    }
+                }
+                break;
+
+
             case 63: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 63" + ut.RESET);
                 System.out.println(
@@ -1746,9 +1776,9 @@ public class App {
                 int pir2 = Integer
                         .parseInt(System.console().readLine("Altura pirámide 2: "));
 
-                int espacios1 = pir1 - 1;
+                espacios1 = pir1 - 1;
                 int asteriscos1 = 1;
-                int espacios2 = pir2;
+                espacios2 = pir2;
                 int asteriscos2 = 1;
 
                 if (pir1 > pir2) {
