@@ -1556,7 +1556,7 @@ public class App {
                 auxReverse /= 10;
                 aux = 0;
 
-                for (i = 1; i <= contador-1; i++) {
+                for (i = 1; i <= contador - 1; i++) {
                     aux = aux * 10 + (auxReverse % 10);
                     auxReverse /= 10;
                 }
@@ -1566,7 +1566,7 @@ public class App {
                 System.out.println("Numero: " + aux);
 
                 break;
-            
+
             case 53: // EJERCICIO 53
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 53" + ut.RESET);
                 System.out.println(
@@ -1596,7 +1596,7 @@ public class App {
                 asteriscos = numero;
                 for (i = 0; i < numero; i++) {
                     for (int j = 0; j < asteriscos; j++) {
-                        if (j == 0 || j == asteriscos-1 || i == 0) {
+                        if (j == 0 || j == asteriscos - 1 || i == 0) {
                             System.out.print("*");
                         } else {
                             System.out.print(" ");
@@ -1746,21 +1746,50 @@ public class App {
                 altura = Integer
                         .parseInt(System.console().readLine("Calcetines: "));
                 int espacios1 = 5;
-                int espacios2 = 2; 
+                int espacios2 = 2;
 
                 for (i = 1; i <= altura; i++) {
-                    if (i >= altura-1) {
+                    if (i >= altura - 1) {
                         System.out.print("******");
-                        System.out.printf("%"+espacios2+"s", " ");
+                        System.out.printf("%" + espacios2 + "s", " ");
                         System.out.println("******");
-                    } else{
+                    } else {
                         System.out.print("***");
-                        System.out.printf("%"+espacios1+"s", " ");
+                        System.out.printf("%" + espacios1 + "s", " ");
                         System.out.println("***");
                     }
                 }
                 break;
 
+            case 61: // EJERCICIO 61
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 61" + ut.RESET);
+                System.out.println(
+                        """
+                                Escribe un programa que pinte por pantalla la letra V. el ancho del palo de la V.
+                                Es siempre de 3 asteriscos. El usuario debe introducir la altura. La altura mínima es de 3 pisos.
+                                        """);
+                altura = Integer
+                        .parseInt(System.console().readLine("Altura V (mayor o igual a 3): "));
+                espacios = 0;
+                espacios2 = altura*2-2;
+
+                for (i = 1; i <= altura; i++){
+
+                    if ( i == altura) {
+                        System.out.printf((espacios > 0)? "%"+espacios+"s": "", " ");
+                        System.out.println("******");
+                    } else {
+                        System.out.printf((espacios > 0)? "%"+espacios+"s": "", " ");
+                        System.out.print("***");
+                        System.out.printf((espacios2 > 0)? "%"+espacios2+"s": "", " ");
+                        System.out.println("***");
+                    }
+                    espacios++;
+                    espacios2-= 2;
+                }
+                
+
+                break;
 
             case 63: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 63" + ut.RESET);
