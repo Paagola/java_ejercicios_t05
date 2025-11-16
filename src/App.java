@@ -22,11 +22,8 @@ public class App {
         }
         return invertido;
     }
-    
+
     public static void main(String[] args) throws Exception {
-
-
-    
 
         System.out.println(
                 """
@@ -1419,50 +1416,87 @@ public class App {
                 }
                 break;
 
-            case 49: // EJERCICIO 48
+            case 49: // EJERCICIO 49
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 49" + ut.RESET);
                 System.out.println(
                         """
                                 Realiza un programa que calcule el máximo, el mínimo y la media de una serie de números enteros
-                                positivos introducidos por teclado. El programa terminará cuando el usuario introduzca 
-                                un número primo. Este último número no se tendrá en cuenta en los cálculos.El programa debe indicar 
-                                también cuántos números ha introducido el usuario (sin contar el primo que sirve para salir). 
+                                positivos introducidos por teclado. El programa terminará cuando el usuario introduzca
+                                un número primo. Este último número no se tendrá en cuenta en los cálculos.El programa debe indicar
+                                también cuántos números ha introducido el usuario (sin contar el primo que sirve para salir).
                                         """);
-                
+
                 double media = 0;
                 contador = 0;
                 int maximo = 0;
-                int minimo = 0;    
+                int minimo = 0;
 
                 System.out.println("Introduce números, para terminar introduzca un número primo: ");
                 do {
                     correcto = false;
                     numero = Integer.parseInt(System.console().readLine("-> "));
-                    for (i = 2; i <= Math.sqrt(numero);i++){
+                    for (i = 2; i <= Math.sqrt(numero); i++) {
                         if (numero % i == 0) {
                             correcto = true;
                         }
                     }
 
-                    if (contador == 0){minimo = numero;}
+                    if (contador == 0) {
+                        minimo = numero;
+                    }
 
                     if (correcto) {
                         contador++;
                         maximo = Math.max(maximo, numero);
                         minimo = Math.min(minimo, numero);
-                        media = media + (double)numero;
+                        media = media + (double) numero;
                     }
-                }while (correcto);
+                } while (correcto);
 
                 System.out.printf("""
                         Has introducido %d números
                         Máximo: %d
                         Mínimo: %d
                         Media: %.2f
-                        """, contador, maximo, minimo, (double)(media/contador));
+                        """, contador, maximo, minimo, (double) (media / contador));
+                break;
 
-            break;
+            case 50: // EJERCICIO 50
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 50" + ut.RESET);
+                System.out.println(
+                        """
+                                Una empresa de cartelería nos ha encargado un programa para realizar uno de sus diseños.
+                                Debido a los acontecimientos que han tenido lugar en Cataluña durante el 2018, han
+                                recibido muchos pedidos del cartel que muestra el número 155. Realiza un programa que
+                                pinte el número 155 mediante asteriscos. Al usuario se le pediran dos datos, la altura
+                                del cartel y el número de espacios que habrá entre los números.
+                                Altura mínima de 5. La anchura de los nùmeros siempre es la misma. La parte superior
+                                de los cincos también es siempre igual. La parte inferior del 5 si que varía en función
+                                de la altura.
+                                        """);
+                altura = Integer.parseInt(System.console().readLine("Introduzca altura (5 como mínimo): "));
+                espacios = Integer
+                        .parseInt(System.console().readLine("Introduzca los espacios entre números (1 como mínimo): "));
 
+                for (i = 1; i <= altura; i++) {
+                    for (int j = 1; j <= 11; j++) {
+                        if ((i == 1 || i == 3 || i == altura)
+                                &&
+                                (j == 1 || (j >= 3 && j <= 6)
+                                        || j >= 8)) {
+                            System.out.print("*");
+                        } else if (j == 2 || j == 7 ) {
+                            System.out.printf("%" + espacios + "s", " ");
+                        } else if (j == 1 || ((j==3 || j == 8) && i == 2) || ((j == 6  || j == 11) && i > 3)){
+                             System.out.print("*");
+                        } else {
+                            System.out.print(" ");
+                        }
+
+                    } System.out.println("");
+                }
+
+                break;
 
             case 55: // EJERCICIO 55
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
@@ -1478,13 +1512,12 @@ public class App {
                 numero /= 10;
                 int auxReverse = invertirNumero(numero);
 
-                for( i = 0; i < contador-1; i++ ) {
+                for (i = 0; i < contador - 1; i++) {
                     aux = aux * 10 + (auxReverse % 10);
                     auxReverse /= 10;
                 }
 
-                System.out.println("Numero: "+ aux);
-
+                System.out.println("Numero: " + aux);
 
                 break;
 
@@ -1492,44 +1525,45 @@ public class App {
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 56" + ut.RESET);
                 System.out.println(
                         """
-                                Realiza un programa uqe pinte un tríangulo relleno tal como se muestra en los ejemplos. 
+                                Realiza un programa uqe pinte un tríangulo relleno tal como se muestra en los ejemplos.
                                 El usuario debe introducir la altura de la figura.
                                         """);
                 numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
                 espacios = 0;
                 asteriscos = numero;
-                for (i = 0; i < numero; i++ ) {
-                    System.out.printf((espacios > 0)? "%" + espacios + "s": "", " ");
+                for (i = 0; i < numero; i++) {
+                    System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                     for (int j = 0; j < asteriscos; j++) {
                         System.out.print("*");
-                    } System.out.println("");
+                    }
+                    System.out.println("");
                     asteriscos--;
                     espacios++;
                 }
                 break;
 
-
             case 57: // EJERCICIO 57
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 57" + ut.RESET);
                 System.out.println(
                         """
-                                Realiza un programa que pinte un tríangulo hueco. El usuario debe introducir la altura de la 
+                                Realiza un programa que pinte un tríangulo hueco. El usuario debe introducir la altura de la
                                 figura.
                                         """);
-            numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
-            
-            espacios = 0;
+                numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
+
+                espacios = 0;
                 asteriscos = numero;
-                for (i = 0; i < numero; i++ ) {
-                    System.out.printf((espacios > 0)? "%" + espacios + "s": "", " ");
+                for (i = 0; i < numero; i++) {
+                    System.out.printf((espacios > 0) ? "%" + espacios + "s" : "", " ");
                     for (int j = 0; j < asteriscos; j++) {
-                        
-                        if (j == 0 || j==asteriscos-1 || i == 0){
+
+                        if (j == 0 || j == asteriscos - 1 || i == 0) {
                             System.out.print("*");
                         } else {
                             System.out.print(" ");
                         }
-                    } System.out.println("");
+                    }
+                    System.out.println("");
                     asteriscos--;
                     espacios++;
                 }
@@ -1541,23 +1575,21 @@ public class App {
                         """
                                 Realiza un programa que calcule la media de los dígitos que contiene un número entero introducido por teclado.
                                         """);
-            
-            numero = Integer.parseInt(System.console().readLine("Introduzca un número: "));
 
-            aux = numero;
-            int suma = 0;
-            contador = 0;
+                numero = Integer.parseInt(System.console().readLine("Introduzca un número: "));
 
-            while (aux > 0) {
-                suma = suma + (aux%10);
-                contador++;
-                aux /= 10;
-            }
+                aux = numero;
+                int suma = 0;
+                contador = 0;
 
-            media = (double)suma / (double)contador;
-            System.out.printf("Numero: %d%nMedia: %.1f%n", numero, media);
+                while (aux > 0) {
+                    suma = suma + (aux % 10);
+                    contador++;
+                    aux /= 10;
+                }
 
-
+                media = (double) suma / (double) contador;
+                System.out.printf("Numero: %d%nMedia: %.1f%n", numero, media);
 
             case 59: // EJERCICIO 59
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 59" + ut.RESET);
