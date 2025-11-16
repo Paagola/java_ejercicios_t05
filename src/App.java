@@ -1566,6 +1566,46 @@ public class App {
                 System.out.println("Numero: " + aux);
 
                 break;
+            
+            case 53: // EJERCICIO 53
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 53" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte un triángulo relleno tal como se muestra en los ejemplos.
+                                El usuario debe introducir la altura de la figura.
+                                            """);
+                numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
+                asteriscos = numero;
+                for (i = 0; i < numero; i++) {
+                    for (int j = 0; j < asteriscos; j++) {
+                        System.out.print("*");
+                    }
+                    System.out.println("");
+                    asteriscos--;
+                }
+                break;
+
+            case 54: // EJERCICIO 54
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 54" + ut.RESET);
+                System.out.println(
+                        """
+                                Realiza un programa que pinte un triángulo hueco tal como se muestra en los ejemplos.
+                                El usuario debe introducir la altura de la figura.
+                                            """);
+                numero = Integer.parseInt(System.console().readLine("Introduzca la altura: "));
+                asteriscos = numero;
+                for (i = 0; i < numero; i++) {
+                    for (int j = 0; j < asteriscos; j++) {
+                        if (j == 0 || j == asteriscos-1 || i == 0) {
+                            System.out.print("*");
+                        } else {
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.println("");
+                    asteriscos--;
+                }
+                break;
 
             case 55: // EJERCICIO 55
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
