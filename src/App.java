@@ -23,13 +23,23 @@ public class App {
         return invertido;
     }
 
+    public static long invertirNumeroLong(long num) {
+        long invertido = 0;
+        while (num != 0) {
+            invertido = invertido * 10 + num % 10;
+            num /= 10;
+        }
+        return invertido;
+    }
+
+
     public static void main(String[] args) throws Exception {
 
         System.out.println(
                 """
                                                                                        ELIGE UN EJERCICIO
                         ------------------------------------------------------------------------------------------------------------------------------------------------
-                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 |                    |
+                        EJERCICIO 1 -> 1   | EJERCICIO 11 -> med| EJERCICIO 21 -> 21 | EJERCICIO 31 -> 31 | EJERCICIO 41 -> 41 | EJERCICIO 51 -> 51 |
                         EJERCICIO 2 -> 2   | EJERCICIO 12 -> 12 | EJERCICIO 22 -> 22 | EJERCICIO 32 -> 32 | EJERCICIO 42 -> 42 |                    |
                         EJERCICIO 3 -> 3   | EJERCICIO 13 -> 13 | EJERCICIO 23 -> 23 | EJERCICIO 33 -> 33 | EJERCICIO 43 -> 43 |                    | EJERCICIO 63 -> 63
                         EJERCICIO 4 -> 4   | EJERCICIO 14 -> 14 | EJERCICIO 24 -> 24 | EJERCICIO 34 -> 34 | EJERCICIO 44 -> 44 |                    |
@@ -37,8 +47,8 @@ public class App {
                         EJERCICIO 6 -> 6   | EJERCICIO 16 -> 16 | EJERCICIO 26 -> 26 | EJERCICIO 36 -> 36 | EJERCICIO 46 -> 46 | EJERCICIO 56 -> 55 |
                         EJERCICIO 7 -> 7   | EJERCICIO 17 -> 17 | EJERCICIO 27 -> 27 | EJERCICIO 37 -> 37 | EJERCICIO 47 -> 47 | EJERCICIO 57 -> 57 |
                         EJERCICIO 8 -> 8   | EJERCICIO 18 -> 18 | EJERCICIO 28 -> 28 | EJERCICIO 38 -> 38 | EJERCICIO 48 -> 48 | EJERCICIO 58 -> 58 |
-                        EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 |                    | EJERCICIO 59 -> 59 |
-                        EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 |                    |                    |
+                        EJERCICIO 9 -> 9   | EJERCICIO 19 -> 19 | EJERCICIO 29 -> 29 | EJERCICIO 39 -> 39 | EJERCICIO 49 -> 49 | EJERCICIO 59 -> 59 |
+                        EJERCICIO 10 -> 10 | EJERCICIO 20 -> 20 | EJERCICIO 30 -> 30 | EJERCICIO 40 -> 40 | EJERCICIO 50 -> 50 |                    |
                         """);
         int num = Integer.parseInt(System.console().readLine("-> "));
         System.out.printf("%n%n");
@@ -1497,7 +1507,40 @@ public class App {
                 }
 
                 break;
+            
+            case 51: // EJERCICIO 51
+                System.out.println(ut.GREEN_BOLD + "EJERCICIO 50" + ut.RESET);
+                System.out.println(
+                        """
+                            El gusano numérico se come los dígitos con forma de rosquilla, o sea, el 0
+                            y el 8 (todos los que encuentre). Realiza un programa que muestre un número
+                            antes y después de haber sido comido por el gusano. Si el animalito no se ha
+                            comido ningún dígito, el programa debe indicarlo.
+                                        """);
+            numero_long = Long.parseLong(System.console().readLine("Introduzca un número mayor que 0: "));
+            contador = 0;
+            aux_longReverse = invertirNumeroLong(numero_long);
+            aux_long = 0;
 
+            while (aux_longReverse > 0) {
+                if (aux_longReverse % 10 == 0 || aux_longReverse % 10 == 8) {
+                    contador++;
+                    aux_longReverse /= 10;
+                } else {
+                    aux_long = aux_long * 10 + (aux_longReverse % 10);
+                    aux_longReverse /= 10;
+                }
+            }
+
+            if (contador == 0) {
+                System.out.println("El gusano numérico no se ha comido ningún dígito.");
+            } else {
+                System.out.println("Después de haber sido comido por el gusano numérico se queda en "+ aux_long);
+            }
+
+            break;
+
+            
             case 55: // EJERCICIO 55
                 System.out.println(ut.GREEN_BOLD + "EJERCICIO 55" + ut.RESET);
                 System.out.println(
